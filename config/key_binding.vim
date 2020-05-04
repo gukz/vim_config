@@ -29,6 +29,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <leader>b :call common#gitblame()<CR>
 nnoremap <leader>; :
 inoremap jj <esc>
+noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
