@@ -72,15 +72,21 @@ endf
 
 function! common#search()
     let cword = expand("<cword>")
+    let search_cmd = ":AsyncRun ag "
     if len(cword) > 0
-        execute ":AsyncRun grep -n -R ".cword." ."
+        let search_cmd = search_cmd." -w ".cword
+        let file_suffix = "".expand("%:e")
+        if len(file_suffix) > 0
+            let search_cmd = search_cmd." -G ".file_suffix."$"
+        endif
     else
-        let user_input = input("Search: ")
+        let user_input = input("ag ")
         if len(user_input) == 0
             return
         endif
-        execute ":AsyncRun grep -n -R ".user_input." ."
+        let search_cmd = search_cmd.user_input
     endif
+    execute search_cmd
 endfunction
 
 
