@@ -2,6 +2,8 @@ call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'vim-airline/vim-airline'
+" csv 辅助插件
+Plug 'chrisbra/csv.vim'
 
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'

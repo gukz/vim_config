@@ -29,7 +29,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <leader>b :call common#gitblame()<CR>
 nnoremap <leader>; :
 inoremap jj <esc>
-noremap p "0p
+" noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
@@ -78,10 +78,10 @@ nnoremap <F3> :call common#ToggleLineNumber()<CR>
 " :LspTypeDefinition	Go to the type definition of the word under the cursor, and open in the current window
 " :LspWorkspaceSymbol	Search/Show workspace symbol
 " 键绑定
-nnoremap gn :silent LspNextDiagnostic<CR>
-nnoremap gl :silent LspDocumentDiagnostics<CR>
-nnoremap gd :silent LspDefinition<CR>
-nnoremap gh :silent LspHover<CR>
-nnoremap gs :silent LspStatus<CR>
-nnoremap gr :silent LspRename<CR>
+nnoremap gn :LspNextDiagnostic<CR>
+nnoremap gl :LspDocumentDiagnostics<CR>
+nnoremap gd :LspDefinition<CR>
+nnoremap gh :LspHover<CR>
+nnoremap gs :LspStatus<CR>
+nnoremap gr :LspRename<CR>
 """"""""""""""""""""""
