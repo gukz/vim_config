@@ -69,6 +69,16 @@ func! common#gitblame()
     echo '['.commit_hash[0:8].'] '.author.' '.author_time.author_tz.' '.summary
 endf
 
+function! common#base64_d()
+    let select = s:get_selected_str()
+    if len(select) > 0
+        let cmd = 'echo -n "'.select.'"|base64 -d'
+        let res = split(s:system(cmd), "\n")
+        if len(res) > 0
+            echo res
+        endif
+    endif
+endfunction
 
 function! common#search()
     let cword = expand("<cword>")
@@ -89,8 +99,7 @@ function! common#search()
     execute search_cmd
 endfunction
 
-
-func! common#visual_trans()
+func! s:get_selected_str()
     let [startline, startcol, endline, endcol] = [line("'<"), col("'<"), line("'>"), col("'>")]
     let lines = []
     for linenr in range(startline, endline)
@@ -103,6 +112,12 @@ func! common#visual_trans()
     let lines[-1] = lines[-1][:-(len(lines[-1])-endcol+1)]
     let lines[0] = lines[0][startcol-1:]
     let select = substitute(join(lines, ' '), '\s\+', ' ', 'ge')
+    return select
+endfunction
+
+
+func! common#visual_trans()
+    let select = s:get_selected_str()
     call common#trans(select)
 endf
 

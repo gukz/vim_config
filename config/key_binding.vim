@@ -15,20 +15,24 @@ let mapleader=" "
 " pattern@>         (?>pattern)    固化分组
 " pattern%(atom)    (?:pattern)    非捕获型括号
 """""""""""""""""""""""""""""""""""""""""""""""""""
+" 需要光标先选择
+" 翻译选中的内容
+vnoremap <leader>t :call common#visual_trans()<CR>
+" 把选中的字符进行base64解码
+vnoremap <leader>d :call common#base64_d()<CR>
+inoremap jj <esc>
+" 终端模式下按两次esc退出
+tnoremap <esc><esc> <c-\><c-n>
 " 翻译
 nnoremap <leader>t :call common#trans(expand("<cword>"))<CR>
-vnoremap <leader>t :call common#visual_trans()<CR>
 nnoremap <leader>T :call common#normal_trans()<CR>
 " 检索
 nnoremap <leader>s :call common#search()<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>j :AnyJump<CR>
-" 终端模式下按两次esc退出
-tnoremap <esc><esc> <c-\><c-n>
 " 其他
 nnoremap <leader>b :call common#gitblame()<CR>
 nnoremap <leader>; :
-inoremap jj <esc>
 " noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
@@ -42,7 +46,7 @@ nnoremap <leader>z :!zsh<CR>
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
 " nmap s <Plug>(easymotion-overwin-f)
-nmap <leader>m <plug>(easymotion-overwin-f2)
+nnoremap <leader>m <plug>(easymotion-overwin-f2)
 
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
