@@ -40,13 +40,13 @@ nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
 " 异步执行任务，在quick fix 窗口展示结果
 nnoremap <leader>r :AsyncRun 
 nnoremap <leader>z :!zsh<CR>
-" JK motions: Line motions
-" map <leader>j <plug>(easymotion-j)
-" map <leader>k <plug>(easymotion-k)
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" nmap s <Plug>(easymotion-overwin-f)
-nnoremap <leader>m <plug>(easymotion-overwin-f2)
+" 代码片段
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j

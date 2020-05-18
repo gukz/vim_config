@@ -1,14 +1,17 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline'
 " csv 辅助插件
 Plug 'chrisbra/csv.vim'
-
-Plug 'prabirshrestha/asyncomplete.vim'
+" 代码片段
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+" Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'skywind3000/asyncrun.vim'
 " 注释
@@ -19,7 +22,7 @@ Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " 禁止使用jjjjjjjj来移动光标
 Plug 'takac/vim-hardtime'
-Plug 'easymotion/vim-easymotion'
+" 扩充vim text object
 Plug 'wellle/targets.vim'
 " 补全整合插件
 if has('nvim')
@@ -30,12 +33,25 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" Plug 'lighttiger2505/deoplete-vim-lsp'
+" vim session 保存相关
 Plug 'tpope/vim-obsession'
 " jump code
 Plug 'pechorin/any-jump.vim'
 " vim使用情况统计
 Plug 'wakatime/vim-wakatime'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shougo/neosnippet-snippets
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'pechorin/any-jump.vim'
 " Show line numbers in search rusults
@@ -128,16 +144,17 @@ let g:EasyMotion_smartcase = 1
 " Shougo/deoplete.nvim
 " combine tabnine and lsp
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#var('tabnine', {
-\ 'line_limit': 500,
-\ 'max_num_results': 10,
-\ })
 " call deoplete#custom#source('tabnine', 'rank', 70)
 " python
 " pip install python-language-server
+function! LspFormat()
+    exec "LspDocumentFormat"
+    sleep 300m
+    " exec "w"
+endfunction
+
 if executable('pyls')
     augroup LspPython
-    au!
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
@@ -145,21 +162,20 @@ if executable('pyls')
         \ 'workspace_config': {'pyls': {'plugins': {'pycodestyle': {'enabled': v:true}}}},
         \ })
     augroup END
-    autocmd! BufWritePre *.py silent :LspDocumentFormat
+    autocmd! BufWritePre *.py silent call LspFormat()
 endif
 " golang
 " go get -u golang.org/x/tools/cmd/gopls
 " go get -u github.com/sourcegraph/go-langserver
 if executable('gopls')
     augroup LspGo
-    au!
     au User lsp_setup call lsp#register_server({
         \ 'name': 'gopls',
         \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
     augroup END
-    autocmd! BufWritePre *.go silent :LspDocumentFormat
+    autocmd! BufWritePre *.go silent call LspFormat()
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " takac/vim-hardtime
