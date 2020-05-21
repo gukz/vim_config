@@ -3,3 +3,4 @@ __pycache__/
 backup/**
 user_plug/**
 init.vim
+Session.vim
