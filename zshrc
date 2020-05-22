@@ -59,7 +59,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    celery common-aliases docker git git-extras git-flow history kubectl pip python sudo zsh-autosuggestions
+    celery common-aliases docker git git-extras git-flow history kubectl pip python sudo kube-ps1
     zsh-syntax-highlighting
 )
 
