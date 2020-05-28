@@ -25,14 +25,15 @@ Plug 'takac/vim-hardtime'
 " 扩充vim text object
 Plug 'wellle/targets.vim'
 " 补全整合插件
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'codota/tabnine-vim'
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plug 'lighttiger2505/deoplete-vim-lsp'
 " vim session 保存相关
 Plug 'tpope/vim-obsession'
@@ -143,7 +144,10 @@ let g:EasyMotion_smartcase = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/deoplete.nvim
 " combine tabnine and lsp
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+set completeopt=menu,noselect
+set backspace=indent,eol,start
+" call deoplete#custom#option({'prev_completion_mode': "mirror"})
 " call deoplete#custom#source('tabnine', 'rank', 70)
 " python
 " pip install python-language-server
@@ -154,27 +158,22 @@ function! LspFormat()
 endfunction
 
 if executable('pyls')
-    augroup LspPython
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'pycodestyle': {'enabled': v:true}}}},
         \ })
-    augroup END
     autocmd! BufWritePre *.py silent call LspFormat()
 endif
 " golang
 " go get -u golang.org/x/tools/cmd/gopls
 " go get -u github.com/sourcegraph/go-langserver
 if executable('gopls')
-    augroup LspGo
     au User lsp_setup call lsp#register_server({
         \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'cmd': {server_info->['gopls']},
         \ 'whitelist': ['go'],
         \ })
-    augroup END
     autocmd! BufWritePre *.go silent call LspFormat()
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""
