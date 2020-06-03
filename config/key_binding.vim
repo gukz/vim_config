@@ -32,7 +32,7 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>j :AnyJump<CR>
 " 其他
 nnoremap <leader>b :call common#gitblame()<CR>
-nnoremap <leader>; :
+noremap <leader>; :
 " noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
