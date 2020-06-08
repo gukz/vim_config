@@ -21,8 +21,8 @@ filetype plugin indent on
 syntax enable                  " 开启代码高亮
 syntax on                      " 语法高亮 
 highlight Normal ctermbg=NONE guibg=NONE
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" set t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors              " 使用24bit颜色
 
 " n 普通模式
@@ -67,7 +67,7 @@ set noeb                       " 去掉输入错误的提示声音
 set confirm                    " 在处理未保存或只读文件的时候，弹出确认
 set backspace=2                " 使回格键（backspace）正常处理indent, eol, start等
 set gdefault                   " 行内全局替换
-set iskeyword+=_,$,@,%,#,-,.   " 带有如下符号的单词不要被换行分割
+set iskeyword+=_,@,%,#,-       " 带有如下符号的单词不要被换行分割
 
 set smartindent
 

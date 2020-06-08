@@ -33,6 +33,7 @@ nnoremap <leader>j :AnyJump<CR>
 " 其他
 nnoremap <leader>b :call common#gitblame()<CR>
 noremap <leader>; :
+nnoremap <leader>o :call OpenInNewTab()<CR>
 " noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
