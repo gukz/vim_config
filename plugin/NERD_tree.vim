@@ -3635,7 +3635,7 @@ function! s:chRootAndCwd()
     call s:chRoot()
     " gukz
     let dir = b:NERDTreeRoot.path.str({'format': 'Edit'})
-    execute "cd " . dir
+    execute "tcd " . dir
 endfunction
 
 " FUNCTION: s:clearBookmarks(bookmarks) {{{2
@@ -4028,7 +4028,7 @@ function! s:upDir(keepState)
         call oldRoot.putCursorHere(0, 0)
         " gukz
         let dir = b:NERDTreeRoot.path.str({'format': 'Edit'})
-        execute "cd " . dir
+        execute "tcd " . dir
     endif
 endfunction
 

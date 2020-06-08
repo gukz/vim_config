@@ -17,6 +17,14 @@ set cul                        " 突出显示当前行  set cursorline
 " filetype plugin on             " 载入文件类型插件
 filetype plugin indent on
 
+" 配色方案
+syntax enable                  " 开启代码高亮
+syntax on                      " 语法高亮 
+highlight Normal ctermbg=NONE guibg=NONE
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors              " 使用24bit颜色
+
 " n 普通模式
 " v 可视模式
 " i 插入模式

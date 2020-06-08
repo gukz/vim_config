@@ -195,11 +195,7 @@ let g:gruvbox_contrast_dark='soft'
 if !has('gui_running')
   set t_Co=256
 endif
-" 配色方案
-syntax enable                  " 开启代码高亮
-syntax on                      " 语法高亮 
-set termguicolors              " 使用24bit颜色
-highlight Normal ctermbg=NONE guibg=NONE
+
 colorscheme gruvbox
 set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""
