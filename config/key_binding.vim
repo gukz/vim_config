@@ -88,5 +88,5 @@ nnoremap gl :LspDocumentDiagnostics<CR>
 nnoremap gd :LspDefinition<CR>
 nnoremap gh :LspHover<CR>
 nnoremap gs :LspStatus<CR>
-nnoremap gr :LspRename<CR>
+nnoremap gr :LspReferences<CR>
 """"""""""""""""""""""

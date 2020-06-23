@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vi="vim"
 alias k="kubectl"
 alias kcn="kubectl config get-contexts"
 alias kucn="kubectl config use-context"

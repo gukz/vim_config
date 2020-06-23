@@ -4,7 +4,7 @@ Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline'
 " csv 辅助插件
-Plug 'chrisbra/csv.vim'
+" Plug 'chrisbra/csv.vim'
 " 代码片段
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
