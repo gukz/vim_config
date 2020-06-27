@@ -50,7 +50,7 @@ set viminfo^=%                 " 关闭时记录buffer内容
 set viminfo+=!                 " 保存全局变量
 
 set showcmd                    " 输入的命令显示出来，看的清楚些
-set showmode                   " 开启模式显示
+set noshowmode                   " 开启模式显示
 set cmdheight=1                " 命令行（在状态行下）的高度，默认为1，这里是1
 set ruler                      " 打开状态栏标尺
 set magic                      " 正则表达式匹配形式
