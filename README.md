@@ -35,6 +35,7 @@ set wildcharm=<C-Z>
 ```
 
 buffer之间的光标位置跳转通过`<c-o>/<c-i>`来实现。
+如果使用跳转到定义功能，可以使用`<c-t>`来回到跳转前。
 
 ### 标签页 tab
 - 进入vim前 vim -p `<filename>` 以多标签形式打开文件。如vim -p * 就是编辑当前目录的所有文件。
@@ -60,6 +61,8 @@ buffer之间的光标位置跳转通过`<c-o>/<c-i>`来实现。
 
 ### 窗口 window
 水平、垂直分屏。
+- :sp <file> 垂直分屏
+- :vsp <file> 水平分屏
 
 ## 文件类型检测 filetype
 通过`:filetype`命令查看你的文件类型检测功能有没有打开。
@@ -123,7 +126,7 @@ vim 的map不仅仅可以映射按键，还可以支持多种参数。这些参�
 `:autocmd [group] {events} {file_pattern} [nested] {command}`
 - group: 可以将一些自动命令放到一个组里，然后通过
 - events: 指由vim的某些行为触发的事件，例如打开文件，写入文件等。
-- file_pattern: 一个筛选文件的正则。
+- file\_pattern: 一个筛选文件的正则。
 - nested: 允许循环调用自动命令，当你的自动命令中会触发自身时。
 [官方文档](https://vimhelp.org/autocmd.txt.html#autocmd-events)
 
@@ -146,10 +149,11 @@ quickfix 将编译过程中产生的错误信息保存到文件中，然后vim�
 > 延迟加载插件代码，到需要时才加载。
 
 ### 与多种工具集成
-vim 可以发起系统调用
+vim 可以调用bash
 > gitblame
 > translate
 > 模糊检索文件名
+> ag全文检索
 
 ## vim script
 vim script 是vim负责解释、执行的一种脚本语言，语法类似python。
@@ -157,7 +161,6 @@ vim script 是vim负责解释、执行的一种脚本语言，语法类似python
 
 
 ## 使用python代码编写vim插件
-
 ```
 function! Bar()
 python << EOF

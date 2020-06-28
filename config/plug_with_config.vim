@@ -52,7 +52,7 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/user_plug/neosnippet-snippets/neosnippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'pechorin/any-jump.vim'
 " Show line numbers in search rusults
@@ -130,25 +130,7 @@ highlight clear LspWarningLine
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" easymotion/vim-easymotion
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-" nmap s <Plug>(easymotion-overwin-f2)
-
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shougo/deoplete.nvim
 " combine tabnine and lsp
-" let g:deoplete#enable_at_startup = 1
-set completeopt=menu,noselect
-set backspace=indent,eol,start
-" call deoplete#custom#option({'prev_completion_mode': "mirror"})
-" call deoplete#custom#source('tabnine', 'rank', 70)
 " python
 " pip install python-language-server
 function! LspFormat()
@@ -185,7 +167,6 @@ let g:hardtime_ignore_quickfix = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " liuchengxu/vim-which-key
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-set timeoutlen=500
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " skywind3000/asyncrun.vim
 let g:asyncrun_open = 8
@@ -197,7 +178,6 @@ if !has('gui_running')
 endif
 
 colorscheme gruvbox
-set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 当打开vim且没有文件时自动打开NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif

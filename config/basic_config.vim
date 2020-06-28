@@ -65,21 +65,23 @@ set foldcolumn=0
 set fillchars=vert:\ ,stl:\ ,stlnc:\  " 在被分割的窗口间显示空白，便于阅读
 set noeb                       " 去掉输入错误的提示声音
 set confirm                    " 在处理未保存或只读文件的时候，弹出确认
-set backspace=2                " 使回格键（backspace）正常处理indent, eol, start等
+set backspace=indent,eol,start " 使回格键（backspace）正常处理indent, eol, start等
 set gdefault                   " 行内全局替换
 set iskeyword+=_,@,%,#,-       " 带有如下符号的单词不要被换行分割
 
-set smartindent
+set background=dark
+set timeoutlen=500             " 按键超时时长
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4
 set shiftwidth=4
 set expandtab                  " 用空格代替制表符
 set smarttab                   " 在行和段开始处使用制表符
+set smartindent
+" set autoindent                 " 自动缩进
 
 set pastetoggle=<F2>           " F2 进入粘贴模式
-set completeopt=longest,menu   " 代码补全
-set autoindent                 " 自动缩进
+set completeopt=longest,menu,noselect   " 代码补全
 
 set showmatch                  " 高亮显示匹配的括号
 set matchtime=1                " 匹配括号高亮的时间（单位是十分之一秒）
@@ -87,7 +89,7 @@ set matchtime=1                " 匹配括号高亮的时间（单位是十分�
 set ignorecase                 " 搜索忽略大小写
 set hlsearch                   " 搜索逐字符高亮
 set incsearch
-set smartcase
+set smartcase                  " 搜索字符中出现大写字符时大小写敏感，否则不敏感
 set shortmess-=S               " 搜索时展示索引
 
 set encoding=utf-8             " 编码设置
