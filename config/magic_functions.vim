@@ -1,20 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 500ms 定时任务
+" 1. 文件在其他地方修改时，自动更新
 let timer = timer_start(500, 'Fresh', {'repeat': -1})
 set autoread                    " 当文件被改动时自动载入buffer
 function Fresh(arg)
     " 检查文件是否被改动，如果没改动就加载到buffer
     execute 'checktime'
-endfunction
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
-function! OpenInNewTab()
-    let filepath = expand("%:p") 
-    let folderpath = expand("%:h")
-    let curline = line(".")
-    execute "tabnew " . filepath
-    execute "tcd " . folderpath
-    execute "normal " . curline . "gg"
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " vim 记录上次退出时光标位置

@@ -20,6 +20,7 @@ let mapleader=" "
 vnoremap <leader>t :call common#visual_trans()<CR>
 " 把选中的字符进行base64解码
 vnoremap <leader>d :call common#base64_d()<CR>
+vnoremap <leader>e :call common#base64_e()<CR>
 inoremap jj <esc>
 " 终端模式下按两次esc退出
 tnoremap <esc><esc> <c-\><c-n>
@@ -33,7 +34,7 @@ nnoremap <leader>j :AnyJump<CR>
 " 其他
 nnoremap <leader>b :call common#gitblame()<CR>
 noremap <leader>; :
-nnoremap <leader>o :call OpenInNewTab()<CR>
+nnoremap <leader>o :call common#OpenInNewTab()<CR>
 " noremap p "0p
 nnoremap <CR> :noh<CR><CR>
 " quickfix 窗口
@@ -47,7 +48,6 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j

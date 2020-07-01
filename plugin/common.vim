@@ -69,12 +69,28 @@ func! common#gitblame()
     echo '['.commit_hash[0:8].'] '.author.' '.author_time.author_tz.' '.summary
 endf
 
+function! common#base64_e()
+    let select = s:get_selected_str()
+    if len(select) > 0
+        let cmd = "echo -n '".select."'|base64"
+        let res = split(s:system(cmd), "\n")
+        if len(res) == 1
+            echo res[0]
+        elseif len(res) > 0
+            echo res
+        endif
+    endif
+
+endfunction
+
 function! common#base64_d()
     let select = s:get_selected_str()
     if len(select) > 0
-        let cmd = 'echo -n "'.select.'"|base64 -d'
+        let cmd = "echo -n '".select."'|base64 -d"
         let res = split(s:system(cmd), "\n")
-        if len(res) > 0
+        if len(res) == 1
+            echo res[0]
+        elseif len(res) > 0
             echo res
         endif
     endif
@@ -121,7 +137,7 @@ func! common#visual_trans()
     call common#trans(select)
 endf
 
-
+" 翻译选中文本
 function! common#normal_trans()
     let user_input = input("Translate: ")
     echo ""
@@ -131,6 +147,15 @@ function! common#normal_trans()
     call common#trans(user_input)
 endfunction
 
+" 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
+function! common#OpenInNewTab()
+    let filepath = expand("%:p") 
+    let folderpath = expand("%:h")
+    let curline = line(".")
+    execute "tabnew " . filepath
+    execute "tcd " . folderpath
+    execute "normal " . curline . "gg"
+endfunction
 
 function! common#trans(...)
     let user_input = ""

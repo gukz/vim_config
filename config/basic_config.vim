@@ -71,6 +71,7 @@ set iskeyword+=_,@,%,#,-       " 带有如下符号的单词不要被换行分�
 
 set background=dark
 set timeoutlen=500             " 按键超时时长
+" set ttimeoutlen=100
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4

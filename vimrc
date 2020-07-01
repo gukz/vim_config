@@ -11,7 +11,7 @@ so ~/.vim/config/key_binding.vim
 " 插件配置
 so ~/.vim/config/plug_with_config.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" 编程语言相关
+" 微信小程序
 au BufNewFile,BufRead *.wxml set filetype=html
 au BufNewFile,BufRead *.wxss set filetype=css
 """""""""""""""""""""""""""""""""""""""""""""""""""

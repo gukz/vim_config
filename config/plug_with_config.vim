@@ -1,13 +1,7 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline'
-" csv 辅助插件
-" Plug 'chrisbra/csv.vim'
-" 代码片段
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 " Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -26,15 +20,6 @@ Plug 'takac/vim-hardtime'
 Plug 'wellle/targets.vim'
 " 补全整合插件
 Plug 'codota/tabnine-vim'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-" Plug 'lighttiger2505/deoplete-vim-lsp'
 " vim session 保存相关
 Plug 'tpope/vim-obsession'
 " jump code
@@ -42,17 +27,6 @@ Plug 'pechorin/any-jump.vim'
 " vim使用情况统计
 Plug 'wakatime/vim-wakatime'
 call plug#end()
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shougo/neosnippet-snippets
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/user_plug/neosnippet-snippets/neosnippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'pechorin/any-jump.vim'
 " Show line numbers in search rusults
@@ -112,7 +86,7 @@ let g:any_jump_remove_comments_from_results = 1
 
 " Custom ignore files
 " default is: ['*.tmp', '*.temp']
-let g:any_jump_ignored_files = ['*.tmp', '*.temp']
+let g:any_jump_ignored_files = ['*.tmp', '*.temp', '__pycache__']
 
 " Search references only for current file type
 " (default: false, so will find keyword in all filetypes)
@@ -129,8 +103,7 @@ highlight link LspErrorText GruvboxRedSign " requires gruvbox
 highlight clear LspWarningLine
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" combine tabnine and lsp
+
 " python
 " pip install python-language-server
 function! LspFormat()
@@ -160,7 +133,7 @@ if executable('gopls')
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " takac/vim-hardtime
-let g:hardtime_default_on = 0
+let g:hardtime_default_on = 1
 let g:hardtime_showmsg = 1
 let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
 let g:hardtime_ignore_quickfix = 1
