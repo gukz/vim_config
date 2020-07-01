@@ -67,7 +67,7 @@ set noeb                       " 去掉输入错误的提示声音
 set confirm                    " 在处理未保存或只读文件的时候，弹出确认
 set backspace=indent,eol,start " 使回格键（backspace）正常处理indent, eol, start等
 set gdefault                   " 行内全局替换
-set iskeyword+=_,@,%,#,-       " 带有如下符号的单词不要被换行分割
+set iskeyword+=_,@,%,#,-,=     " 带有如下符号的单词不要被换行分割
 
 set background=dark
 set timeoutlen=500             " 按键超时时长

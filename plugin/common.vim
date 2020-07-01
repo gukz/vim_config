@@ -69,30 +69,33 @@ func! common#gitblame()
     echo '['.commit_hash[0:8].'] '.author.' '.author_time.author_tz.' '.summary
 endf
 
-function! common#base64_e()
-    let select = s:get_selected_str()
-    if len(select) > 0
-        let cmd = "echo -n '".select."'|base64"
-        let res = split(s:system(cmd), "\n")
-        if len(res) == 1
-            echo res[0]
-        elseif len(res) > 0
-            echo res
-        endif
+function! s:is_base64_decode_failed(res)
+    if a:res =~ 'base64: invalid input'
+        return 1
     endif
-
+    return 0
 endfunction
 
-function! common#base64_d()
-    let select = s:get_selected_str()
+function! common#base64(...)
+    " 首先尝试decode，如果失败再encode
+    " 如果一个字符串是base64之后的，必然可以解码
+    " 如果一个字符串是base64之前的，可能也可以解码，可以加参数，强制编码
+    let force = a:0 >= 1 ? 1 : 0
+    let select = expand("<cword>")
     if len(select) > 0
-        let cmd = "echo -n '".select."'|base64 -d"
-        let res = split(s:system(cmd), "\n")
-        if len(res) == 1
-            echo res[0]
-        elseif len(res) > 0
-            echo res
+        let cmd_res = s:system("echo -n '".select."'|base64 -d")
+        let mode = "base64 decode: "
+        if s:is_base64_decode_failed(cmd_res) == 1 || force == 1
+            let cmd_res = s:system("echo -n '".select."'|base64")
+            let mode = "base64 encode: "
         endif
+        let res_list = split(cmd_res, "\n")
+        let res = ""
+        for res_str in res_list
+            let res = res . res_str
+        endfor
+        let @" = res
+        echo mode.res
     endif
 endfunction
 
@@ -131,22 +134,6 @@ func! s:get_selected_str()
     return select
 endfunction
 
-
-func! common#visual_trans()
-    let select = s:get_selected_str()
-    call common#trans(select)
-endf
-
-" 翻译选中文本
-function! common#normal_trans()
-    let user_input = input("Translate: ")
-    echo ""
-    if len(user_input) == 0
-        return
-    endif
-    call common#trans(user_input)
-endfunction
-
 " 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
 function! common#OpenInNewTab()
     let filepath = expand("%:p") 
@@ -155,6 +142,21 @@ function! common#OpenInNewTab()
     execute "tabnew " . filepath
     execute "tcd " . folderpath
     execute "normal " . curline . "gg"
+endfunction
+
+" 翻译选中文本
+function! common#mode_trans(...)
+    let force = a:0 >= 1 ? 1 : 0
+    if force == 1
+        let user_input = input("Translate: ")
+        echo ""
+    else
+        let user_input = expand("<cword>")
+    endif
+    if len(user_input) == 0
+        return
+    endif
+    call common#trans(user_input)
 endfunction
 
 function! common#trans(...)

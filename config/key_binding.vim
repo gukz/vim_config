@@ -15,18 +15,15 @@ let mapleader=" "
 " pattern@>         (?>pattern)    固化分组
 " pattern%(atom)    (?:pattern)    非捕获型括号
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" 需要光标先选择
-" 翻译选中的内容
-vnoremap <leader>t :call common#visual_trans()<CR>
-" 把选中的字符进行base64解码
-vnoremap <leader>d :call common#base64_d()<CR>
-vnoremap <leader>e :call common#base64_e()<CR>
+" 翻译
+noremap <leader>t :call common#mode_trans()<CR>
+noremap <leader>T :call common#mode_trans("")<CR>
+" base64编、解码
+noremap <leader>e :call common#base64()<CR>
+noremap <leader>E :call common#base64("")<CR>
 inoremap jj <esc>
 " 终端模式下按两次esc退出
 tnoremap <esc><esc> <c-\><c-n>
-" 翻译
-nnoremap <leader>t :call common#trans(expand("<cword>"))<CR>
-nnoremap <leader>T :call common#normal_trans()<CR>
 " 检索
 nnoremap <leader>s :call common#search()<CR>
 nnoremap <leader>f :FZF<CR>
