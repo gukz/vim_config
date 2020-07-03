@@ -29,17 +29,17 @@ nnoremap <leader>b :call common#gitblame()<CR>
 noremap <leader>; :
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
 " noremap p "0p
-nnoremap <CR> :noh<CR><CR>
+nnoremap <cr> :noh<cr><cr>
 
 tnoremap <esc><esc> <c-\><c-n>
 " 输入模式下移动光标
-inoremap <c-l> <right>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-h> <left>
+imap <c-l> <right>
+imap <c-j> <down>
+imap <c-k> <up>
+imap <c-h> <left>
 " 翻译
 noremap <leader>t :call common#mode_trans()<CR>
-noremap <leader>t :call common#mode_trans("")<cr>
+noremap <leader>T :call common#mode_trans("")<cr>
 " base64编、解码
 noremap <leader>e :call common#base64()<CR>
 noremap <leader>E :call common#base64("")<CR>

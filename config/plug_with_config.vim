@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 " Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -31,6 +31,20 @@ Plug 'bfrg/vim-qf-preview'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'itchyny/lightline.vim'
+     " \ 'colorscheme': 'wombat',
+     " \   'lineinfo': '%3l:%-2v%<',
+     " \ 'component': {
+     " \   'charvaluehex': '0x%B',
+     " \ },
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0 " Disable default mappings

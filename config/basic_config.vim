@@ -72,8 +72,8 @@ set formatoptions+=mM
 " set breakat+=
 
 set background=dark
-set timeoutlen=500             " 按键超时时长
-set ttimeoutlen=500
+set timeoutlen=200             " 按键超时时长
+set ttimeoutlen=200
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4
