@@ -13,32 +13,30 @@ let mapleader=" "
 " pattern@>         (?>pattern)    固化分组
 " pattern%(atom)    (?:pattern)    非捕获型括号
 """""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <expr> q exists('b:mad_number') ? '1' : 'q'
-nnoremap <expr> w exists('b:mad_number') ? '2' : 'w'
-nnoremap <expr> e exists('b:mad_number') ? '3' : 'e'
-nnoremap <expr> r exists('b:mad_number') ? '4' : 'r'
-nnoremap <expr> t exists('b:mad_number') ? '5' : 't'
-nnoremap <expr> y exists('b:mad_number') ? '6' : 'y'
-nnoremap <expr> u exists('b:mad_number') ? '7' : 'u'
-nnoremap <expr> i exists('b:mad_number') ? '8' : 'i'
-nnoremap <expr> o exists('b:mad_number') ? '9' : 'o'
-nnoremap <expr> p exists('b:mad_number') ? '0' : 'p'
-
-fun! ToggleNumberMode()
-    if !exists('b:mad_number')
-        let b:mad_number=1
-        echo "Mad Number"
-    else
-        unlet b:mad_number
-        echo "Leave Mad Number"
-    endif
-endfun
-
-noremap <tab> :call ToggleNumberMode()<CR>
-
+" easy motion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
+nmap s <Plug>(easymotion-overwin-f2)
 
 inoremap jj <esc>
+nnoremap <leader>b :call common#gitblame()<CR>
+noremap <leader>; :
+nnoremap <leader>o :call common#OpenInNewTab()<CR>
+" noremap p "0p
+nnoremap <CR> :noh<CR><CR>
+
+tnoremap <esc><esc> <c-\><c-n>
+" 输入模式下移动光标
+inoremap <c-l> <right>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-h> <left>
 " 翻译
 noremap <leader>t :call common#mode_trans()<CR>
 noremap <leader>t :call common#mode_trans("")<cr>
@@ -48,23 +46,14 @@ noremap <leader>E :call common#base64("")<CR>
 " 全文检索
 nnoremap <leader>s :call common#search()<CR>
 nnoremap <leader>S :call common#search("")<CR>
-
-" 终端模式下按两次esc退出
-tnoremap <esc><esc> <c-\><c-n>
+" 查找文件、引用
 nnoremap <leader>f :FZF<CR>
-nnoremap <leader>j :AnyJump<CR>
-" 其他
-nnoremap <leader>b :call common#gitblame()<CR>
-noremap <leader>; :
-nnoremap <leader>o :call common#OpenInNewTab()<CR>
-" noremap p "0p
-nnoremap <CR> :noh<CR><CR>
+nnoremap <leader>a :AnyJump<CR>
 " quickfix 窗口
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
 " 异步执行任务，在quick fix 窗口展示结果
 nnoremap <leader>r :AsyncRun 
 nnoremap <leader>z :!zsh<CR>
-
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -104,5 +93,5 @@ nnoremap gl :LspDocumentDiagnostics<CR>
 nnoremap gd :LspDefinition<CR>
 nnoremap gh :LspHover<CR>
 nnoremap gs :LspStatus<CR>
-" nnoremap gr :LspReferences<CR>
+nnoremap gr :LspReferences<CR>
 """"""""""""""""""""""

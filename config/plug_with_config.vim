@@ -26,7 +26,35 @@ Plug 'tpope/vim-obsession'
 Plug 'pechorin/any-jump.vim'
 " vim使用情况统计
 Plug 'wakatime/vim-wakatime'
+" quickfix 预览
+Plug 'bfrg/vim-qf-preview'
+" 快速跳转
+Plug 'easymotion/vim-easymotion'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1 " US layout
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'bfrg/vim-qf-preview'
+augroup qfpreview
+    autocmd!
+    autocmd FileType qf nmap <buffer> p <plug>(qf-preview-open)
+augroup END
+let g:qfpreview = {
+    \ 'scrollup': 'k',
+    \ 'scrolldown': 'j',
+    \ 'halfpageup': 'u',
+    \ 'halfpagedown': 'd',
+    \ 'fullpageup': 'b',
+    \ 'fullpagedown': 'f',
+    \ 'close': 'q',
+    \ 'scrollbar': 0,
+    \ 'mouseclick': 'none',
+    \ 'height': 20
+    \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'pechorin/any-jump.vim'
 " Show line numbers in search rusults
