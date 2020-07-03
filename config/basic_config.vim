@@ -68,10 +68,12 @@ set confirm                    " 在处理未保存或只读文件的时候，�
 set backspace=indent,eol,start " 使回格键（backspace）正常处理indent, eol, start等
 set gdefault                   " 行内全局替换
 set iskeyword+=_,@,%,#,-,=     " 带有如下符号的单词不要被换行分割
+set formatoptions+=mM
+" set breakat+=
 
 set background=dark
 set timeoutlen=500             " 按键超时时长
-" set ttimeoutlen=100
+set ttimeoutlen=500
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4

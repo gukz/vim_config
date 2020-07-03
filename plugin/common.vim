@@ -99,10 +99,11 @@ function! common#base64(...)
     endif
 endfunction
 
-function! common#search()
+function! common#search(...)
+    let force = a:0 >= 1 ? 1 : 0
     let cword = expand("<cword>")
     let search_cmd = ":AsyncRun ag "
-    if len(cword) > 0
+    if len(cword) > 0 && force == 0
         let search_cmd = search_cmd." -w ".cword
         let file_suffix = "".expand("%:e")
         if len(file_suffix) > 0
