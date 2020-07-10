@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 " Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
@@ -30,7 +31,18 @@ Plug 'wakatime/vim-wakatime'
 Plug 'bfrg/vim-qf-preview'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
+Plug 'fidian/hexmode'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'fidian/hexmode'
+let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_fenced_languages = ["c=cpp", "c++=cpp", "viml=vim", "bash=sh", "ini=dosini", "golang=go"]
+let g:vim_markdown_emphasis_multiline = 0
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_style_pythonic = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'itchyny/lightline.vim'
      " \ 'colorscheme': 'wombat',

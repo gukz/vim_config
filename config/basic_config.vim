@@ -5,8 +5,8 @@ set nowrap                     " 禁止自动换行
 set go=                        " 不要图形按钮
 set whichwrap+=<,>,h,l         " 允许backspace和光标键跨越行边界(不建议)
 set scrolloff=4                " 光标移动到buffer的顶部和底部时保持4行距离
-set nu                         " 显示行号  set number
-set relativenumber             " 显示相对行号
+" set nu                         " 显示行号  set number
+" set relativenumber             " 显示相对行号
 set cul                        " 突出显示当前行  set cursorline
 " set cuc                      " 高亮光标所在列
 " autocmd InsertEnter * se cul    " 用浅色高亮当前行
@@ -39,7 +39,8 @@ set selectmode=mouse,key
 set clipboard=unnamed            " 共享剪贴板
 
 set updatetime=300
-set cmdheight=2
+set cmdheight=1
+set laststatus=2               " 始终展示状态栏"
 set shortmess+=c
 set shortmess=atI              " 启动的时候不显示那个援助乌干达儿童的提示
 set signcolumn=no
@@ -59,21 +60,23 @@ set guioptions-=m              " 隐藏菜单栏
 
 set foldenable                 " 允许折叠 
 set foldmethod=indent          " 允许代码折叠
-set foldlevel=99
+set foldlevel=9
 set foldcolumn=0
+
+set conceallevel=2             " 语法隐藏配置
 
 set fillchars=vert:\ ,stl:\ ,stlnc:\  " 在被分割的窗口间显示空白，便于阅读
 set noeb                       " 去掉输入错误的提示声音
 set confirm                    " 在处理未保存或只读文件的时候，弹出确认
 set backspace=indent,eol,start " 使回格键（backspace）正常处理indent, eol, start等
 set gdefault                   " 行内全局替换
-set iskeyword+=_,@,%,#,-,=     " 带有如下符号的单词不要被换行分割
+set iskeyword+=_,@,%,#,-       " 带有如下符号的单词不要被换行分割
 set formatoptions+=mM
 " set breakat+=
 
 set background=dark
-set timeoutlen=200             " 按键超时时长
-set ttimeoutlen=200
+set timeoutlen=300             " 按键超时时长
+set ttimeoutlen=300
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4
@@ -103,8 +106,8 @@ set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 
 set wildmenu                   " 增强模式中的命令行自动完成操作
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.png,*.jpg,*.gif     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.pyc,*.png,*.jpg,*.gif  " Windows
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.jpg,*.gif,*/__pycache__/*     " MacOSX/Linux
+set wildignore+=*\\tmp\\*                                                      " Windows
 set splitbelow
 set splitright
 
