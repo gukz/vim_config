@@ -38,7 +38,7 @@ set selection=exclusive
 set selectmode=mouse,key
 set clipboard=unnamed            " 共享剪贴板
 
-set updatetime=300
+set updatetime=100
 set cmdheight=1
 set laststatus=2               " 始终展示状态栏"
 set shortmess+=c

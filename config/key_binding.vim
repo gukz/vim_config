@@ -14,17 +14,16 @@ let mapleader=" "
 " pattern%(atom)    (?:pattern)    非捕获型括号
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " easy motion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-map <leader>l <Plug>(easymotion-lineforward)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-map <leader>h <Plug>(easymotion-linebackward)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
+nmap <leader>l <Plug>(easymotion-lineforward)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
+nmap <leader>h <Plug>(easymotion-linebackward)
 nmap s <Plug>(easymotion-overwin-f2)
 
-inoremap jj <esc>
 nnoremap <leader>b :call common#gitblame()<CR>
 noremap <leader>; :
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
@@ -32,6 +31,7 @@ nnoremap <leader>o :call common#OpenInNewTab()<CR>
 nnoremap <cr> :noh<cr><cr>
 
 tnoremap <esc><esc> <c-\><c-n>
+map <c-c> <esc>
 " 输入模式下移动光标
 imap <c-l> <right>
 imap <c-j> <down>
@@ -64,6 +64,7 @@ nnoremap = <c-w>=
 nnoremap - <c-w>-
 nnoremap + <c-w>+
 nnoremap <F3> :call common#ToggleLineNumber()<CR>
+nnoremap <F4> :Autoformat<CR>
 """"""""""""""""""""""
 " language server
 " :LspCodeAction	Gets a list of possible commands that can be applied to a file so it can be fixed (quick fix)

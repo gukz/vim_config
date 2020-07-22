@@ -3,10 +3,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
-" Plug 'prabirshrestha/asyncomplete.vim'
+" lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'skywind3000/asyncrun.vim'
 " 注释
@@ -32,7 +33,23 @@ Plug 'bfrg/vim-qf-preview'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
 Plug 'fidian/hexmode'
+Plug 'Chiel92/vim-autoformat'
+Plug 'psliwka/vim-smoothie'
+Plug 'itchyny/vim-cursorword'
+" Plug 'yuttie/comfortable-motion.vim'
+" Plug 'OmniSharp/omnisharp-vim'
+" 替换功能及时预览
+Plug 'markonm/traces.vim'
+" leader ww快速交换窗口
+Plug 'wesQ3/vim-windowswap'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'Chiel92/vim-autoformat'
+let g:autoformat_verbosemode=1
+autocmd BufWrite *.sql,*.c,*.java,*.js,*.html :Autoformat "设置发生保存事件时执行格式化
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'OmniSharp/omnisharp-vim'
+let g:OmniSharp_selector_ui = 'fzf'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
@@ -59,8 +76,8 @@ let g:lightline = {
       \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_do_mapping = 1 " Disable default mappings
+let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -150,6 +167,14 @@ let g:any_jump_references_only_for_current_filetype = 1
 " (default: false, search engine will ignore vcs untracked files)
 let g:any_jump_disable_vcs_ignore = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'mattn/vim-lsp-settings'
+" 支持的语言以及安装方法
+" https://github.com/mattn/vim-lsp-settings#supported-languages
+" let g:lsp_settings = {
+" \  'pyls': {'cmd': {server_info->['pyls']}},
+" \  'gopls': {'cmd': {server_info->['gopls']}},
+" \}
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'prabirshrestha/vim-lsp'
 let g:lsp_signs_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
@@ -158,14 +183,14 @@ highlight clear LspWarningLine
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
 
-" python
-" pip install python-language-server
 function! LspFormat()
     exec "LspDocumentFormat"
     sleep 300m
     " exec "w"
 endfunction
 
+" python
+" pip install python-language-server
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
@@ -184,6 +209,15 @@ if executable('gopls')
         \ 'whitelist': ['go'],
         \ })
     autocmd! BufWritePre *.go silent call LspFormat()
+endif
+" csharp
+if executable('omnisharp.sh')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'omnisharp',
+        \ 'cmd': {server_info->['omnisharp.sh']},
+        \ 'whitelist': ['cs'],
+        \ })
+    autocmd! BufWritePre *.cs silent call LspFormat()
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " takac/vim-hardtime
