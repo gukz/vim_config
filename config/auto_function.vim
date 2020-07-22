@@ -1,6 +1,3 @@
-" 微信小程序
-au BufNewFile,BufRead *.wxml set filetype=html
-au BufNewFile,BufRead *.wxss set filetype=css
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 1500ms 定时任务
 " 1. 文件在其他地方修改时，自动更新

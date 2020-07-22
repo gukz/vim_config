@@ -29,6 +29,15 @@ function! s:system(str, ...)
     return output
 endfunction
 
+function! common#OpenInNewTab()
+    " 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
+    let filepath = expand("%:p")
+    let folderpath = expand("%:h")
+    let curline = line(".")
+    execute "tabnew " . filepath
+    execute "tcd " . folderpath
+    execute "normal " . curline . "gg"
+endfunction
 
 func! common#gitblame()
     " % 当前完整的文件名
@@ -69,36 +78,6 @@ func! common#gitblame()
     echo '['.commit_hash[0:8].'] '.author.' '.author_time.author_tz.' '.summary
 endf
 
-function! s:is_base64_decode_failed(res)
-    if a:res =~ 'base64: invalid input'
-        return 1
-    endif
-    return 0
-endfunction
-
-function! common#base64(...)
-    " 首先尝试decode，如果失败再encode
-    " 如果一个字符串是base64之后的，必然可以解码
-    " 如果一个字符串是base64之前的，可能也可以解码，可以加参数，强制编码
-    let force = a:0 >= 1 ? 1 : 0
-    let select = expand("<cword>")
-    if len(select) > 0
-        let cmd_res = s:system("echo -n '".select."'|base64 -d")
-        let mode = "base64 decode: "
-        if s:is_base64_decode_failed(cmd_res) == 1 || force == 1
-            let cmd_res = s:system("echo -n '".select."'|base64")
-            let mode = "base64 encode: "
-        endif
-        let res_list = split(cmd_res, "\n")
-        let res = ""
-        for res_str in res_list
-            let res = res . res_str
-        endfor
-        let @" = res
-        echo mode.res
-    endif
-endfunction
-
 function! common#search(...)
     let force = a:0 >= 1 ? 1 : 0
     let cword = expand("<cword>")
@@ -133,16 +112,6 @@ func! s:get_selected_str()
     let lines[0] = lines[0][startcol-1:]
     let select = substitute(join(lines, ' '), '\s\+', ' ', 'ge')
     return select
-endfunction
-
-" 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
-function! common#OpenInNewTab()
-    let filepath = expand("%:p") 
-    let folderpath = expand("%:h")
-    let curline = line(".")
-    execute "tabnew " . filepath
-    execute "tcd " . folderpath
-    execute "normal " . curline . "gg"
 endfunction
 
 " 翻译选中文本

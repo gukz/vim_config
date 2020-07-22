@@ -31,7 +31,6 @@ nnoremap <leader>o :call common#OpenInNewTab()<CR>
 nnoremap <cr> :noh<cr><cr>
 
 tnoremap <esc><esc> <c-\><c-n>
-map <c-c> <esc>
 " 输入模式下移动光标
 imap <c-l> <right>
 imap <c-j> <down>
@@ -40,9 +39,6 @@ imap <c-h> <left>
 " 翻译
 noremap <leader>t :call common#mode_trans()<CR>
 noremap <leader>T :call common#mode_trans("")<cr>
-" base64编、解码
-noremap <leader>e :call common#base64()<CR>
-noremap <leader>E :call common#base64("")<CR>
 " 全文检索
 nnoremap <leader>s :call common#search()<CR>
 nnoremap <leader>S :call common#search("")<CR>

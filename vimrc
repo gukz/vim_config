@@ -1,17 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 基本配置
-so ~/.vim/config/basic_config.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自定义功能
-so ~/.vim/config/magic_functions.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" 按键绑定
-so ~/.vim/config/key_binding.vim
+so ~/.vim/config/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件配置
 so ~/.vim/config/plug_with_config.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" 微信小程序
-au BufNewFile,BufRead *.wxml set filetype=html
-au BufNewFile,BufRead *.wxss set filetype=css
+" 自定义功能
+so ~/.vim/config/auto_function.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" 按键绑定
+so ~/.vim/config/key_binding.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""
