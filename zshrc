@@ -104,15 +104,13 @@ export TERM=xterm-256color
 # golang
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
-export PATH=$PATH:/gitstore/go1.14linux/bin
-export GOPATH="/gitstore/gopath"
+export PATH=$PATH:/g/go1.14linux/bin
+export GOPATH="/g/gopath"
 export GGO111MODULE="on"
 export GOPROXY="https://goproxy.cn/"
 export GOPRIVATE="git.17bdc.com"
 export GOROOT_BOOTSTRAP="/home/vagrant/go"
-export GOBIN=/gitstore/go1.14linux/bin
-# csharp
-export PATH=$PATH:/gitstore/omnisharp-roslyn/bin:/gitstore/omnisharp-roslyn
+export GOBIN=/g/go1.14linux/bin
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

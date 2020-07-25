@@ -32,7 +32,7 @@ autocmd BufReadPost *
 " 只要所有操作都是使用vim进行的，每次写入都不会丢失
 set backup
 function Bkdir()
-    let $BKODIR=expand("$HOME/.vim/backup")
+    let $BKODIR=expand("$HOME/.vimbackup")
     let $RUNTIMEPATH=expand("%:p:h")
     let $BKDIR=$BKODIR.$RUNTIMEPATH
     if !isdirectory(expand("$BKDIR"))
@@ -41,7 +41,7 @@ function Bkdir()
     let &backupdir=expand("$BKDIR")
 endfunction
 function BKLatest()
-    let $BKODIR=expand("$HOME/.vim/backup")
+    let $BKODIR=expand("$HOME/.vimbackup")
     let $RUNTIMEPATH=expand("%:p:h")
     let $BKDIR=$BKODIR.$RUNTIMEPATH
     " 拷贝当前文件过去
