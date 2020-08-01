@@ -5,8 +5,8 @@ set nowrap                     " 禁止自动换行
 set go=                        " 不要图形按钮
 set whichwrap+=<,>,h,l         " 允许backspace和光标键跨越行边界(不建议)
 set scrolloff=4                " 光标移动到buffer的顶部和底部时保持4行距离
-" set nu                         " 显示行号  set number
-" set relativenumber             " 显示相对行号
+set nu                         " 显示行号  set number
+set relativenumber             " 显示相对行号
 set cul                        " 突出显示当前行  set cursorline
 " set cuc                      " 高亮光标所在列
 " autocmd InsertEnter * se cul    " 用浅色高亮当前行

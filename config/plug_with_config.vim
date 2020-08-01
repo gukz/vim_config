@@ -42,7 +42,13 @@ Plug 'itchyny/vim-cursorword'
 Plug 'markonm/traces.vim'
 " leader ww快速交换窗口
 Plug 'wesQ3/vim-windowswap'
+Plug 'skywind3000/vim-terminal-help'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'skywind3000/vim-terminal-help'
+let g:terminal_key='<m-t>'
+let g:terminal_cwd=0
+let g:asynctasks_term_pos='thelp'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'Chiel92/vim-autoformat'
 let g:autoformat_verbosemode=1
