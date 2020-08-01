@@ -22,9 +22,11 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe 
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 EOF
 
-# Docker
 apt-get update
-apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+apt-get -y install apt-transport-https ca-certificates curl software-properties-common silversearcher-ag
+
+install_docker() {
+# Docker
 # step 2: 安装GPG证书
 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | apt-key add -
 # Step 3: 写入软件源信息
@@ -53,3 +55,4 @@ EOF
 
 systemctl daemon-reload
 systemctl restart docker
+}
