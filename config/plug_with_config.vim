@@ -46,7 +46,7 @@ Plug 'skywind3000/vim-terminal-help'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'skywind3000/vim-terminal-help'
-let g:terminal_key='<m-t>'
+let g:terminal_key='<m-m>'
 let g:terminal_cwd=0
 let g:asynctasks_term_pos='thelp'
 """""""""""""""""""""""""""""""""""""""""""""""""""
