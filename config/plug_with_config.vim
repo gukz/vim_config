@@ -43,6 +43,8 @@ Plug 'markonm/traces.vim'
 " leader ww快速交换窗口
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/vim-terminal-help'
+" 实验性的使用csharp 插件
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'skywind3000/vim-terminal-help'
@@ -253,7 +255,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("t:NERDTreeBufName") && bufwinn
 "let NERDTreeShowLineNumbers=1                  " 显示行号
 let g:NERDTreeAutoCenter=1
 "let NERDTreeShowHidden=1                       " 是否显示隐藏文件
-let g:NERDTreeWinSize=20                         " 设置宽度
+let g:NERDTreeWinSize=30                         " 设置宽度
 let g:nerdtree_tabs_open_on_console_startup=1  " 在终端启动vim时，共享NERDTree
 let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__']     " 忽略一下文件的显示
 " let NERDTreeShowBookmarks=1                    " 显示书签列表
