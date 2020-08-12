@@ -29,6 +29,7 @@ noremap <leader>; :
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
 " noremap p "0p
 nnoremap <cr> :noh<cr><cr>
+noremap <f5> :argadd **/*.
 
 tnoremap <esc><esc> <c-\><c-n>
 " 输入模式下移动光标
@@ -61,6 +62,7 @@ nnoremap - <c-w>-
 nnoremap + <c-w>+
 nnoremap <F3> :call common#ToggleLineNumber()<CR>
 nnoremap <F4> :Autoformat<CR>
+autocmd! FileType qf nnoremap <buffer> <leader>o <C-w><Enter><C-w>L
 """"""""""""""""""""""
 " language server
 " :LspCodeAction	Gets a list of possible commands that can be applied to a file so it can be fixed (quick fix)

@@ -44,11 +44,11 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/vim-terminal-help'
 " 实验性的使用csharp 插件
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'skywind3000/vim-terminal-help'
-let g:terminal_key='<m-m>'
+let g:terminal_key='<m-t>'
 let g:terminal_cwd=0
 let g:asynctasks_term_pos='thelp'
 """""""""""""""""""""""""""""""""""""""""""""""""""
