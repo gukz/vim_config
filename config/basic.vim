@@ -76,7 +76,7 @@ set formatoptions+=mM
 
 set background=dark
 set timeoutlen=300             " 按键超时时长
-set ttimeoutlen=300
+set ttimeoutlen=0
 
 set tabstop=4                  " Tab键的宽度
 set softtabstop=4              " 统一缩进为4
@@ -114,3 +114,5 @@ set splitright
 set autowrite                  " 自动保存
 set history=1000               " 历史记录数
 set noswapfile                 " 禁止生成临时文件
+let g:python3_host_skip_check=1
+let g:python3_host_prog = '/usr/bin/python3'

@@ -59,10 +59,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    celery common-aliases docker git git-extras git-flow history kubectl pip python sudo kube-ps1
-    zsh-syntax-highlighting zsh-autosuggestions
+    common-aliases docker git zsh-autosuggestions
 )
-
+#    history  zsh-syntax-highlighting
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -93,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="vim"
+alias vi="vim -u NONE"
 alias k="kubectl"
 alias kcn="kubectl config get-contexts"
 alias kucn="kubectl config use-context"

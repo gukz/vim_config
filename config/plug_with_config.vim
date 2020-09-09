@@ -1,60 +1,46 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
-" lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
+" " lsp
+ Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+ Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+ 
 Plug 'skywind3000/asyncrun.vim'
-" 注释
+" " 注释
 Plug 'preservim/nerdcommenter'
 " 配色
 Plug 'morhetz/gruvbox'
-" 键绑定
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" 禁止使用jjjjjjjj来移动光标
-Plug 'takac/vim-hardtime'
-" 扩充vim text object
-Plug 'wellle/targets.vim'
-" 补全整合插件
-Plug 'codota/tabnine-vim'
-" vim session 保存相关
-Plug 'tpope/vim-obsession'
-" jump code
-Plug 'pechorin/any-jump.vim'
-" vim使用情况统计
-Plug 'wakatime/vim-wakatime'
+" " 键绑定
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" " 禁止使用jjjjjjjj来移动光标
+" Plug 'takac/vim-hardtime'
+" " 扩充vim text object
+" Plug 'wellle/targets.vim'
+" "" 补全整合插件
+" " Plug 'codota/tabnine-vim'
+" " vim session 保存相关
+" Plug 'tpope/vim-obsession'
+" " jump code
+" Plug 'pechorin/any-jump.vim'
+" " vim使用情况统计
+" Plug 'wakatime/vim-wakatime'
 " quickfix 预览
 Plug 'bfrg/vim-qf-preview'
-" 快速跳转
-Plug 'easymotion/vim-easymotion'
-Plug 'fidian/hexmode'
-Plug 'Chiel92/vim-autoformat'
-Plug 'psliwka/vim-smoothie'
-Plug 'itchyny/vim-cursorword'
-" Plug 'yuttie/comfortable-motion.vim'
+" " 快速跳转
+" " Plug 'easymotion/vim-easymotion'
+" Plug 'fidian/hexmode'
+" Plug 'psliwka/vim-smoothie'
+" Plug 'itchyny/vim-cursorword'
 " Plug 'OmniSharp/omnisharp-vim'
-" 替换功能及时预览
-Plug 'markonm/traces.vim'
-" leader ww快速交换窗口
-Plug 'wesQ3/vim-windowswap'
-Plug 'skywind3000/vim-terminal-help'
-" 实验性的使用csharp 插件
-" Plug 'OmniSharp/omnisharp-vim'
+" " 替换功能及时预览
+" Plug 'markonm/traces.vim'
+" " leader ww快速交换窗口
+" Plug 'wesQ3/vim-windowswap'
 call plug#end()
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'skywind3000/vim-terminal-help'
-let g:terminal_key='<m-t>'
-let g:terminal_cwd=0
-let g:asynctasks_term_pos='thelp'
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'Chiel92/vim-autoformat'
-let g:autoformat_verbosemode=1
-autocmd BufWrite *.sql,*.c,*.java,*.js,*.html :Autoformat "设置发生保存事件时执行格式化
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'fzf'
@@ -124,7 +110,7 @@ let g:any_jump_preview_lines_count = 5
 let g:any_jump_max_search_results = 10
 
 " Prefered search engine: rg or ag
-let g:any_jump_search_prefered_engine = 'ag'
+let g:any_jump_search_prefered_engine = 'rg'
 
 
 " Search results list styles:

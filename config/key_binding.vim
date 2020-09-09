@@ -51,7 +51,7 @@ nnoremap <leader>p :echo expand("%:p")<CR>
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
 " 异步执行任务，在quick fix 窗口展示结果
 nnoremap <leader>r :AsyncRun 
-nnoremap <leader>z :!zsh<CR>
+nnoremap <leader>z :!bash<CR>
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -62,7 +62,7 @@ nnoremap - <c-w>-
 nnoremap + <c-w>+
 nnoremap <F3> :call common#ToggleLineNumber()<CR>
 nnoremap <F4> :Autoformat<CR>
-autocmd! FileType qf nnoremap <buffer> <leader>o <C-w><Enter><C-w>L
+autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 """"""""""""""""""""""
 " language server
 " :LspCodeAction	Gets a list of possible commands that can be applied to a file so it can be fixed (quick fix)

@@ -175,16 +175,16 @@ augroup NERDTree
     exec "autocmd BufEnter ". s:NERDTreeBufName ."* stopinsert"
 
     "cache bookmarks when vim loads
-    autocmd VimEnter * call s:Bookmark.CacheBookmarks(0)
+    " autocmd VimEnter * call s:Bookmark.CacheBookmarks(0)
 
     "load all nerdtree plugins after vim starts
-    autocmd VimEnter * runtime! nerdtree_plugin/**/*.vim
+    " autocmd VimEnter * runtime! nerdtree_plugin/**/*.vim
 augroup END
 
 if g:NERDTreeHijackNetrw
     augroup NERDTreeHijackNetrw
-        autocmd VimEnter * silent! autocmd! FileExplorer
-        au BufEnter,VimEnter * call s:checkForBrowse(expand("<amatch>"))
+        " autocmd VimEnter * silent! autocmd! FileExplorer
+        " au BufEnter,VimEnter * call s:checkForBrowse(expand("<amatch>"))
     augroup END
 endif
 
