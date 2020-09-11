@@ -4,10 +4,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 " " lsp
- Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
- Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
  
 Plug 'skywind3000/asyncrun.vim'
 " " 注释
@@ -20,10 +20,10 @@ Plug 'morhetz/gruvbox'
 " Plug 'takac/vim-hardtime'
 " " 扩充vim text object
 " Plug 'wellle/targets.vim'
-" "" 补全整合插件
-" " Plug 'codota/tabnine-vim'
-" " vim session 保存相关
-" Plug 'tpope/vim-obsession'
+" 补全整合插件
+Plug 'codota/tabnine-vim'
+" vim session 保存相关
+Plug 'tpope/vim-obsession'
 " " jump code
 " Plug 'pechorin/any-jump.vim'
 " " vim使用情况统计
@@ -36,10 +36,10 @@ Plug 'bfrg/vim-qf-preview'
 " Plug 'psliwka/vim-smoothie'
 " Plug 'itchyny/vim-cursorword'
 " Plug 'OmniSharp/omnisharp-vim'
-" " 替换功能及时预览
+" 替换功能及时预览
 " Plug 'markonm/traces.vim'
-" " leader ww快速交换窗口
-" Plug 'wesQ3/vim-windowswap'
+" leader ww快速交换窗口
+Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'OmniSharp/omnisharp-vim'
