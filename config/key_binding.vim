@@ -25,6 +25,7 @@ nmap <leader>h <Plug>(easymotion-linebackward)
 nmap s <Plug>(easymotion-overwin-f2)
 
 nnoremap <leader>b :call common#gitblame()<CR>
+nnoremap <leader>b :call common#CleanBuffer()<CR>
 noremap <leader>; :
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
 " noremap p "0p

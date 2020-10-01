@@ -2,32 +2,19 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
-function! s:has_vimproc()
-    if !exists('s:exists_vimproc')
-        try
-            call vimproc#version()
-            let s:exists_vimproc = 1
-        catch
-            let s:exists_vimproc = 0
-        endtry
+function! common#CleanBuffer()
+    let s:curWinNr = winnr()
+    if winbufnr(s:curWinNr) == 1
+        ret
     endif
-    return s:exists_vimproc
+    let s:curBufNr = bufnr("%")
+    while s:nextBufNr != s:curBufNr
+        exe "bn"
+        exe "bdel".s:nextBufNr
+        let s:nextBufNr = bufnr("%")
+    endwhile
 endfunction
 
-
-function! s:system(str, ...)
-    let command = a:str
-    let input = a:0 >= 1 ? a:1 : ''
-    if a:0 == 0
-        let output = s:has_vimproc() ? vimproc#system(command) : system(command)
-    elseif a:0 == 1
-        let output = s:has_vimproc() ? vimproc#system(command, input) : system(command, input)
-    else
-        " ignores 3rd argument unless you have vimproc.
-        let output = s:has_vimproc() ? vimproc#system(command, input, a:2) : system(command, input)
-    endif
-    return output
-endfunction
 
 function! common#OpenInNewTab()
     " 在新tab内打开当前文件（用于配合跳转到定义，快速浏览源码文件目录）
@@ -38,6 +25,7 @@ function! common#OpenInNewTab()
     execute "tcd " . folderpath
     execute "normal " . curline . "gg"
 endfunction
+
 
 func! common#gitblame()
     " % 当前完整的文件名
@@ -78,6 +66,7 @@ func! common#gitblame()
     echo '['.commit_hash[0:8].'] '.author.' '.author_time.author_tz.' '.summary
 endf
 
+
 function! common#search(...)
     let force = a:0 >= 1 ? 1 : 0
     let cword = expand("<cword>")
@@ -98,6 +87,7 @@ function! common#search(...)
     execute search_cmd
 endfunction
 
+
 func! s:get_selected_str()
     let [startline, startcol, endline, endcol] = [line("'<"), col("'<"), line("'>"), col("'>")]
     let lines = []
@@ -114,6 +104,7 @@ func! s:get_selected_str()
     return select
 endfunction
 
+
 " 翻译选中文本
 function! common#mode_trans(...)
     let force = a:0 >= 1 ? 1 : 0
@@ -128,6 +119,7 @@ function! common#mode_trans(...)
     endif
     call common#trans(user_input)
 endfunction
+
 
 function! common#trans(...)
     let user_input = ""
@@ -148,6 +140,7 @@ function! common#trans(...)
     endif
     call job_start(['/bin/bash', '-c', cmd], {'callback': 'DisplayTransResult'})
 endfunction
+
 
 function! DisplayTransResult(channel, msg)
     let trans_result = split(a:msg, "\n")
@@ -172,6 +165,34 @@ function! common#ToggleLineNumber()
         execute("set relativenumber")
         execute("set nowrap")
     endif
+endfunction
+
+
+function! s:has_vimproc()
+    if !exists('s:exists_vimproc')
+        try
+            call vimproc#version()
+            let s:exists_vimproc = 1
+        catch
+            let s:exists_vimproc = 0
+        endtry
+    endif
+    return s:exists_vimproc
+endfunction
+
+
+function! s:system(str, ...)
+    let command = a:str
+    let input = a:0 >= 1 ? a:1 : ''
+    if a:0 == 0
+        let output = s:has_vimproc() ? vimproc#system(command) : system(command)
+    elseif a:0 == 1
+        let output = s:has_vimproc() ? vimproc#system(command, input) : system(command, input)
+    else
+        " ignores 3rd argument unless you have vimproc.
+        let output = s:has_vimproc() ? vimproc#system(command, input, a:2) : system(command, input)
+    endif
+    return output
 endfunction
 
 

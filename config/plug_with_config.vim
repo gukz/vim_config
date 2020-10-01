@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/user_plug')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 " " lsp
 Plug 'prabirshrestha/async.vim'
@@ -14,29 +14,29 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'preservim/nerdcommenter'
 " 配色
 Plug 'morhetz/gruvbox'
-" " 键绑定
-" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" 键绑定
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " " 禁止使用jjjjjjjj来移动光标
 " Plug 'takac/vim-hardtime'
-" " 扩充vim text object
-" Plug 'wellle/targets.vim'
+" 扩充vim text object
+Plug 'wellle/targets.vim'
 " 补全整合插件
-Plug 'codota/tabnine-vim'
+" Plug 'codota/tabnine-vim'
 " vim session 保存相关
 Plug 'tpope/vim-obsession'
 " " jump code
-" Plug 'pechorin/any-jump.vim'
+Plug 'pechorin/any-jump.vim'
 " " vim使用情况统计
 " Plug 'wakatime/vim-wakatime'
 " quickfix 预览
 Plug 'bfrg/vim-qf-preview'
-" " 快速跳转
-" " Plug 'easymotion/vim-easymotion'
-" Plug 'fidian/hexmode'
+" 快速跳转
+" Plug 'easymotion/vim-easymotion'
+Plug 'fidian/hexmode'
 " Plug 'psliwka/vim-smoothie'
 " Plug 'itchyny/vim-cursorword'
 " Plug 'OmniSharp/omnisharp-vim'
-" 替换功能及时预览
+" " 替换功能及时预览
 " Plug 'markonm/traces.vim'
 " leader ww快速交换窗口
 Plug 'wesQ3/vim-windowswap'
@@ -238,10 +238,11 @@ colorscheme gruvbox
 autocmd vimenter * if !argc() | NERDTree | endif
 " 只剩 NERDTree时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName)!= -1) | q | endif
-"let NERDTreeShowLineNumbers=1                  " 显示行号
+"let NERDTreeShowLineNumbers=1                 " 显示行号
 let g:NERDTreeAutoCenter=1
-"let NERDTreeShowHidden=1                       " 是否显示隐藏文件
-let g:NERDTreeWinSize=30                         " 设置宽度
+let g:NERDTreeWinPos = "right"
+"let NERDTreeShowHidden=1                      " 是否显示隐藏文件
+let g:NERDTreeWinSize=30                       " 设置宽度
 let g:nerdtree_tabs_open_on_console_startup=1  " 在终端启动vim时，共享NERDTree
 let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__']     " 忽略一下文件的显示
 " let NERDTreeShowBookmarks=1                    " 显示书签列表
