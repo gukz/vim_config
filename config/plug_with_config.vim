@@ -1,15 +1,21 @@
-call plug#begin('~/.vim/user_plug')
+if g:cursystem == 0
+    call plug#begin('c:\\vim_config\\user_plug')
+else
+    call plug#begin('~/.vim/user_plug')
+endif
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
-" " lsp
+" lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
  
 Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/vim-terminal-help'
 " " 注释
 Plug 'preservim/nerdcommenter'
 " 配色
@@ -33,17 +39,23 @@ Plug 'bfrg/vim-qf-preview'
 " 快速跳转
 " Plug 'easymotion/vim-easymotion'
 Plug 'fidian/hexmode'
-" Plug 'psliwka/vim-smoothie'
-" Plug 'itchyny/vim-cursorword'
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'psliwka/vim-smoothie'
+Plug 'itchyny/vim-cursorword'
+" csharp
+Plug 'OmniSharp/omnisharp-vim'
 " " 替换功能及时预览
-" Plug 'markonm/traces.vim'
+Plug 'markonm/traces.vim'
 " leader ww快速交换窗口
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'skywind3000/vim-terminal-help'
+" let g:terminal_key='<space-t>'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'OmniSharp/omnisharp-vim'
-let g:OmniSharp_selector_ui = 'fzf'
+" let g:OmniSharp_selector_ui = 'fzf'
+" let g:OmniSharp_translate_cygwin_wsl = 1
+" let g:OmniSharp_server_path = '/home/gukz/omnisharp/omnisharp-roslyn/run'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
@@ -110,7 +122,7 @@ let g:any_jump_preview_lines_count = 5
 let g:any_jump_max_search_results = 10
 
 " Prefered search engine: rg or ag
-let g:any_jump_search_prefered_engine = 'rg'
+let g:any_jump_search_prefered_engine = 'ag'
 
 
 " Search results list styles:
@@ -177,11 +189,6 @@ highlight clear LspWarningLine
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
 
-function! LspFormat()
-    exec "LspDocumentFormat"
-    sleep 300m
-    " exec "w"
-endfunction
 
 " python
 " pip install python-language-server
@@ -192,6 +199,11 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
     autocmd! BufWritePre *.py silent call LspFormat()
+    function! LspFormat()
+        exec "LspDocumentFormat"
+        sleep 300m
+        " exec "w"
+    endfunction
 endif
 " golang
 " go get -u golang.org/x/tools/cmd/gopls
@@ -203,15 +215,11 @@ if executable('gopls')
         \ 'whitelist': ['go'],
         \ })
     autocmd! BufWritePre *.go silent call LspFormat()
-endif
-" csharp
-if executable('omnisharp.sh')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'omnisharp',
-        \ 'cmd': {server_info->['omnisharp.sh']},
-        \ 'whitelist': ['cs'],
-        \ })
-    autocmd! BufWritePre *.cs silent call LspFormat()
+    function! LspFormat()
+        exec "LspDocumentFormat"
+        sleep 300m
+        " exec "w"
+    endfunction
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " takac/vim-hardtime
@@ -228,10 +236,6 @@ let g:asyncrun_open = 8
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " morhetz/gruvbox
 let g:gruvbox_contrast_dark='soft'
-if !has('gui_running')
-  set t_Co=256
-endif
-
 colorscheme gruvbox
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " 当打开vim且没有文件时自动打开NERDTree

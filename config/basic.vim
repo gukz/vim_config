@@ -1,6 +1,7 @@
 set nocompatible               " 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set hidden
 " set showtabline=0              " 关闭tabline
+set nobackup
 set nowrap                     " 禁止自动换行
 set go=                        " 不要图形按钮
 set whichwrap+=<,>,h,l         " 允许backspace和光标键跨越行边界(不建议)
@@ -33,26 +34,25 @@ set termguicolors              " 使用24bit颜色
 " a 以上所有的模式    可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
 " r 跳过 |hit-enter| 提示
 " A 在可视模式下自动选择
-set mouse=a
+set mouse=n
 set selection=exclusive
 set selectmode=mouse,key
 set clipboard=unnamed            " 共享剪贴板
 
 set updatetime=100
-set cmdheight=1
+set updatecount =100
 set laststatus=2               " 始终展示状态栏"
-set shortmess+=c
-set shortmess=atI              " 启动的时候不显示那个援助乌干达儿童的提示
+set shortmess=atIc             " 启动的时候不显示那个援助乌干达儿童的提示
+" set shortmess-=S               " 搜索时展示索引
 set signcolumn=no
 
-set updatecount =100
-set viminfo='1000,f1            " 关闭时记录尽可能多的信息
+set viminfo='1000,f1           " 关闭时记录尽可能多的信息
 set viminfo^=%                 " 关闭时记录buffer内容
 set viminfo+=!                 " 保存全局变量
 
 set showcmd                    " 输入的命令显示出来，看的清楚些
-set noshowmode                   " 开启模式显示
-set cmdheight=1                " 命令行（在状态行下）的高度，默认为1，这里是1
+set noshowmode                 " 开启模式显示
+set cmdheight=2                " 命令行（在状态行下）的高度，默认为1，这里是1
 set ruler                      " 打开状态栏标尺
 set magic                      " 正则表达式匹配形式
 set guioptions-=T              " 隐藏工具栏
@@ -96,7 +96,6 @@ set ignorecase                 " 搜索忽略大小写
 set hlsearch                   " 搜索逐字符高亮
 set incsearch
 set smartcase                  " 搜索字符中出现大写字符时大小写敏感，否则不敏感
-set shortmess-=S               " 搜索时展示索引
 
 set encoding=utf-8             " 编码设置
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
@@ -114,5 +113,10 @@ set splitright
 set autowrite                  " 自动保存
 set history=1000               " 历史记录数
 set noswapfile                 " 禁止生成临时文件
-let g:python3_host_skip_check=1
-let g:python3_host_prog = '/usr/bin/python3'
+
+" gvim 配置
+if has("gui_running")
+    set guifont=Consolas:h14:cANSI
+else
+    set t_Co=256
+endif

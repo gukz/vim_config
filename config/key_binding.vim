@@ -12,25 +12,26 @@ let mapleader=" "
 " pattern@<!        (?<!pattern)   逆序否定环视
 " pattern@>         (?>pattern)    固化分组
 " pattern%(atom)    (?:pattern)    非捕获型括号
+" .*贪婪  .{-}不贪婪
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " easy motion
 " map  / <Plug>(easymotion-sn)
 " omap / <Plug>(easymotion-tn)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
-nmap <leader>l <Plug>(easymotion-lineforward)
-nmap <leader>j <Plug>(easymotion-j)
-nmap <leader>k <Plug>(easymotion-k)
-nmap <leader>h <Plug>(easymotion-linebackward)
-nmap s <Plug>(easymotion-overwin-f2)
+" nmap <leader>l <Plug>(easymotion-lineforward)
+" nmap <leader>j <Plug>(easymotion-j)
+" nmap <leader>k <Plug>(easymotion-k)
+" nmap <leader>h <Plug>(easymotion-linebackward)
+" nmap s <Plug>(easymotion-overwin-f2)
 
 nnoremap <leader>b :call common#gitblame()<CR>
-nnoremap <leader>b :call common#CleanBuffer()<CR>
+nnoremap <leader>c :call common#CleanBuffer()<CR>
 noremap <leader>; :
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
-" noremap p "0p
 nnoremap <cr> :noh<cr><cr>
-noremap <f5> :argadd **/*.
+noremap <leader>ga :argadd **/*.
+noremap <leader>gd :argdo e
 
 tnoremap <esc><esc> <c-\><c-n>
 " 输入模式下移动光标
@@ -38,9 +39,9 @@ imap <c-l> <right>
 imap <c-j> <down>
 imap <c-k> <up>
 imap <c-h> <left>
-" 翻译
-noremap <leader>t :call common#mode_trans()<CR>
-noremap <leader>T :call common#mode_trans("")<cr>
+" " 翻译
+" noremap <leader>t :call common#mode_trans()<CR>
+" noremap <leader>T :call common#mode_trans("")<cr>
 " 全文检索
 nnoremap <leader>s :call common#search()<CR>
 nnoremap <leader>S :call common#search("")<CR>
@@ -52,7 +53,11 @@ nnoremap <leader>p :echo expand("%:p")<CR>
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
 " 异步执行任务，在quick fix 窗口展示结果
 nnoremap <leader>r :AsyncRun 
-nnoremap <leader>z :!bash<CR>
+if g:cursystem == 0
+    nnoremap <leader>z :!powershell<CR>
+else
+    nnoremap <leader>z :!bash<CR>
+endif
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

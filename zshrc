@@ -8,6 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="steeef"  # steeef
+source ~/.zinit/bin/zinit.zsh
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -58,9 +59,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
-#    history  zsh-syntax-highlighting  docker git common-aliases
 source $ZSH/oh-my-zsh.sh
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+#    history  zsh-syntax-highlighting  docker git common-aliases
 
 # User configuration
 
@@ -82,6 +83,11 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+
+# zinit
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -90,12 +96,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="vim -u NONE"
-alias k="kubectl"
-alias kcn="kubectl config get-contexts"
-alias kucn="kubectl config use-context"
-alias trans2zh="trans -b :zh"
-alias trans2en="trans -b :en"
+alias vi="nvim -u NONE"
+alias vis="nvim -S Session.vim"
+alias vim="nvim"
+# alias k="kubectl"
+# alias kcn="kubectl config get-contexts"
+# alias kucn="kubectl config use-context"
+# alias trans2zh="trans -b :zh"
+# alias trans2en="trans -b :en"
 
 export TERM=xterm-256color
 # golang
@@ -108,3 +116,4 @@ export GOPROXY="https://goproxy.cn/"
 export GOPRIVATE="git.17bdc.com"
 # export GOROOT_BOOTSTRAP="/home/vagrant/go"
 export GOBIN=/g/go1.14linux/bin
+
