@@ -8,6 +8,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
+Plug 'dyng/ctrlsf.vim'
+
 " lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -56,6 +58,22 @@ call plug#end()
 " let g:OmniSharp_selector_ui = 'fzf'
 " let g:OmniSharp_translate_cygwin_wsl = 1
 " let g:OmniSharp_server_path = '/home/gukz/omnisharp/omnisharp-roslyn/run'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'dyng/ctrlsf.vim'
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_regex_pattern = 1
+let g:ctrlsf_search_mode = 'async'
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '0'
+let g:ctrlsf_mapping = {
+    \ "next": "j",
+    \ "prev": "k",
+    \ "openb": "",
+    \ "vsplit": "<C-o>",
+    \ "quit": "<C-C>",
+    \ }
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
