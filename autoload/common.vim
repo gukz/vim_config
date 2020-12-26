@@ -40,7 +40,8 @@ func! common#gitblame()
     let git_blame = split(s:system(cmd), "\n")
     let l:shell_error = s:has_vimproc() ? vimproc#get_last_status() : v:shell_error
     if l:shell_error
-        echo 'blame failed'
+        echo file. "file_folder:". file_folder
+        echo git_blame
         return
     endif
 

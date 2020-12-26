@@ -120,3 +120,12 @@ if has("gui_running")
 else
     set t_Co=256
 endif
+
+if g:cursystem == 0
+    set shell=powershell.exe
+    set shellcmdflag=\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>
+    set shellquote=\"
+    set shellxquote=
+endif
