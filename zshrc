@@ -96,7 +96,6 @@ zinit light zdharma/fast-syntax-highlighting
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="nvim -u NONE"
 alias vis="nvim -S Session.vim"
 alias vim="nvim"
 # alias k="kubectl"
