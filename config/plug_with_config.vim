@@ -4,7 +4,8 @@ else
     call plug#begin('~/.vim/user_plug')
 endif
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
@@ -18,7 +19,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
  
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/vim-terminal-help'
-" " 注释
+" 注释
 Plug 'preservim/nerdcommenter'
 " 配色
 Plug 'morhetz/gruvbox'
@@ -51,30 +52,6 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'skywind3000/vim-terminal-help'
-" let g:terminal_key='<space-t>'
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'OmniSharp/omnisharp-vim'
-" let g:OmniSharp_selector_ui = 'fzf'
-" let g:OmniSharp_translate_cygwin_wsl = 1
-" let g:OmniSharp_server_path = '/home/gukz/omnisharp/omnisharp-roslyn/run'
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'dyng/ctrlsf.vim'
-let g:ctrlsf_default_view_mode = 'compact'
-let g:ctrlsf_populate_qflist = 1
-let g:ctrlsf_regex_pattern = 1
-let g:ctrlsf_search_mode = 'async'
-let g:ctrlsf_position = 'bottom'
-let g:ctrlsf_winsize = '0'
-let g:ctrlsf_mapping = {
-    \ "next": "j",
-    \ "prev": "k",
-    \ "openb": "",
-    \ "vsplit": "<C-o>",
-    \ "quit": "<C-C>",
-    \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,7 +72,11 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ]
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B',
       \ },
       \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""

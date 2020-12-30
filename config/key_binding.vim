@@ -39,15 +39,14 @@ imap <c-l> <right>
 imap <c-j> <down>
 imap <c-k> <up>
 imap <c-h> <left>
-" " 翻译
-" noremap <leader>t :call common#mode_trans()<CR>
-" noremap <leader>T :call common#mode_trans("")<cr>
+noremap <leader>t :term<CR>
 " 全文检索
 nnoremap <leader>s :call common#search()<CR>
-nnoremap <leader>S :call common#search("")<CR>
+" nnoremap <leader>S :call common#search("")<CR>
+nnoremap <leader>S :Clap grep<CR>
+nnoremap <leader>f :Clap files<CR>
 " 查找文件、引用
 nnoremap <leader>a :AnyJump<CR>
-nnoremap <leader>f :FZF<CR>
 nnoremap <leader>p :echo expand("%:p")<CR>
 " quickfix 窗口
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
