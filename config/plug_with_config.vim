@@ -4,7 +4,11 @@ else
     call plug#begin('~/.vim/user_plug')
 endif
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+" 搜索神器
+Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
+Plug 'rhysd/accelerated-jk'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
@@ -51,8 +55,8 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'skywind3000/vim-terminal-help'
-" let g:terminal_key='<space-t>'
+" Plug 'rhysd/accelerated-jk'
+let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'OmniSharp/omnisharp-vim'
 " let g:OmniSharp_selector_ui = 'fzf'
@@ -270,6 +274,10 @@ let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__']     " 忽略一下�
 " let NERDTreeShowBookmarks=1                    " 显示书签列表
 " 显示目录
 nnoremap <C-n> :NERDTreeToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_theme = { 'search_text': {'guifg': 'red', 'ctermfg': 'red'} }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf 配置
 let g:fzf_colors =
