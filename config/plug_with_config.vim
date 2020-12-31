@@ -10,6 +10,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
