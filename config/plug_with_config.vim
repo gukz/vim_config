@@ -13,6 +13,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
@@ -22,7 +23,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
  
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/vim-terminal-help'
-" " 注释
+" 注释
 Plug 'preservim/nerdcommenter'
 " 配色
 Plug 'morhetz/gruvbox'
@@ -55,6 +56,7 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
+<<<<<<< HEAD
 " Plug 'rhysd/accelerated-jk'
 let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,6 +81,8 @@ let g:ctrlsf_mapping = {
     \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
+=======
+>>>>>>> a179b281da073e17697d5f95a8bc7bea31be4f1a
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -99,7 +103,11 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ]
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B',
       \ },
       \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
