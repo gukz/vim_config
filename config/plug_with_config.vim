@@ -56,7 +56,6 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""
-<<<<<<< HEAD
 " Plug 'rhysd/accelerated-jk'
 let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -81,8 +80,6 @@ let g:ctrlsf_mapping = {
     \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
-=======
->>>>>>> a179b281da073e17697d5f95a8bc7bea31be4f1a
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
 """""""""""""""""""""""""""""""""""""""""""""""""""
