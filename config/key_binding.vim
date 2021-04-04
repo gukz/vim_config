@@ -15,15 +15,15 @@ let mapleader=" "
 " .*贪婪  .{-}不贪婪
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " easy motion
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
-" nmap <leader>l <Plug>(easymotion-lineforward)
-" nmap <leader>j <Plug>(easymotion-j)
-" nmap <leader>k <Plug>(easymotion-k)
-" nmap <leader>h <Plug>(easymotion-linebackward)
-" nmap s <Plug>(easymotion-overwin-f2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+nmap <leader>l <Plug>(easymotion-lineforward)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
+nmap <leader>h <Plug>(easymotion-linebackward)
+nmap s <Plug>(easymotion-overwin-f2)
 
 nnoremap <leader>b :call common#gitblame()<CR>
 nnoremap <leader>c :call common#CleanBuffer()<CR>
@@ -39,7 +39,6 @@ imap <c-l> <right>
 imap <c-j> <down>
 imap <c-k> <up>
 imap <c-h> <left>
-noremap <leader>t :term<CR>
 " 全文检索
 nnoremap <leader>s :call common#search()<CR>
 " nnoremap <leader>S :call common#search("")<CR>

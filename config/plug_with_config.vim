@@ -5,13 +5,15 @@ else
 endif
 
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'gukz/customVimPlug'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+" 在echo中打印帮助文档
+Plug 'Shougo/echodoc.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
 " lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -41,7 +43,7 @@ Plug 'pechorin/any-jump.vim'
 " quickfix 预览
 Plug 'bfrg/vim-qf-preview'
 " 快速跳转
-" Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'fidian/hexmode'
 Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/vim-cursorword'
@@ -52,6 +54,17 @@ Plug 'markonm/traces.vim'
 " leader ww快速交换窗口
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'Shougo/echodoc.vim'
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'popup'
+highlight link EchoDocPopup Pmenu
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+" g:clap_open_action: Dict, { 'ctrl-t': 'tab split', 'ctrl-x': 'split', 'ctrl-v': 'vsplit'  }
+let g:clap_disable_run_rooter=v:true
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
