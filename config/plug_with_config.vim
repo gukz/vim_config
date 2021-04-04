@@ -6,9 +6,12 @@ endif
 
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'gukz/customVimPlug'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 " 在echo中打印帮助文档
 Plug 'Shougo/echodoc.vim'
+" curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+" 搜索神器
+Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
+Plug 'rhysd/accelerated-jk'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
@@ -65,6 +68,30 @@ highlight link EchoDocPopup Pmenu
 " Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 " g:clap_open_action: Dict, { 'ctrl-t': 'tab split', 'ctrl-x': 'split', 'ctrl-v': 'vsplit'  }
 let g:clap_disable_run_rooter=v:true
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'rhysd/accelerated-jk'
+let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'OmniSharp/omnisharp-vim'
+" let g:OmniSharp_selector_ui = 'fzf'
+" let g:OmniSharp_translate_cygwin_wsl = 1
+" let g:OmniSharp_server_path = '/home/gukz/omnisharp/omnisharp-roslyn/run'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'dyng/ctrlsf.vim'
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_regex_pattern = 1
+let g:ctrlsf_search_mode = 'async'
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '0'
+let g:ctrlsf_mapping = {
+    \ "next": "j",
+    \ "prev": "k",
+    \ "openb": "",
+    \ "vsplit": "<C-o>",
+    \ "quit": "<C-C>",
+    \ }
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'fidian/hexmode'
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
@@ -265,6 +292,10 @@ let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__']     " 忽略一下�
 " let NERDTreeShowBookmarks=1                    " 显示书签列表
 " 显示目录
 nnoremap <C-n> :NERDTreeToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_theme = { 'search_text': {'guifg': 'red', 'ctermfg': 'red'} }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf 配置
 let g:fzf_colors =
