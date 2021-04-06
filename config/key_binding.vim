@@ -45,7 +45,8 @@ imap <c-h> <left>
 nnoremap <leader>s :call common#search()<CR>
 " nnoremap <leader>S :call common#search("")<CR>
 nnoremap <leader>S :Clap grep<CR>
-nnoremap <leader>f :Clap files<CR>
+nnoremap <leader>f :Clap gfiles<CR>
+nnoremap <leader>F :Clap files<CR>
 " 查找文件、引用
 nnoremap <leader>a :AnyJump<CR>
 nnoremap <leader>p :echo expand("%:p")<CR>
@@ -58,6 +59,8 @@ if g:cursystem == 0
 else
     nnoremap <leader>z :!bash<CR>
 endif
+" 文件树
+nnoremap <leader>n :NERDTreeToggle<CR>
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

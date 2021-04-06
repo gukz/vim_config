@@ -39,7 +39,7 @@ set selection=exclusive
 set selectmode=mouse,key
 set clipboard=unnamed            " 共享剪贴板
 
-set updatetime=100
+set updatetime=500
 set updatecount =100
 set laststatus=2               " 始终展示状态栏"
 set shortmess=atIc             " 启动的时候不显示那个援助乌干达儿童的提示
@@ -121,11 +121,11 @@ else
     set t_Co=256
 endif
 
-" if g:cursystem == 0
-"     set shell=powershell.exe
-"     set shellcmdflag=\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
-"     set shellpipe=|
-"     set shellredir=>
-"     set shellquote=\"
-"     set shellxquote=
-" endif
+if g:cursystem == 0
+    set shell=powershell.exe
+    set shellcmdflag=\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>
+    set shellquote=\"
+    set shellxquote=
+endif
