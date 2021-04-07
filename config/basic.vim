@@ -46,9 +46,9 @@ set shortmess=atIc             " 启动的时候不显示那个援助乌干达�
 " set shortmess-=S               " 搜索时展示索引
 set signcolumn=no
 
-set viminfo='1000,f1           " 关闭时记录尽可能多的信息
-set viminfo^=%                 " 关闭时记录buffer内容
-set viminfo+=!                 " 保存全局变量
+" set viminfo='1000,f1           " 关闭时记录尽可能多的信息
+" set viminfo^=%                 " 关闭时记录buffer内容
+" set viminfo+=!                 " 保存全局变量
 
 set showcmd                    " 输入的命令显示出来，看的清楚些
 set noshowmode                 " 开启模式显示
@@ -111,7 +111,7 @@ set splitbelow
 set splitright
 
 set autowrite                  " 自动保存
-set history=1000               " 历史记录数
+" set history=1000               " 历史记录数
 set noswapfile                 " 禁止生成临时文件
 
 " gvim 配置
