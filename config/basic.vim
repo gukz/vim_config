@@ -45,6 +45,7 @@ set laststatus=2               " 始终展示状态栏"
 set shortmess=atIc             " 启动的时候不显示那个援助乌干达儿童的提示
 " set shortmess-=S               " 搜索时展示索引
 set signcolumn=no
+set backupcopy=yes             " 保存文件不要修改文件名
 
 " set viminfo='1000,f1           " 关闭时记录尽可能多的信息
 " set viminfo^=%                 " 关闭时记录buffer内容
