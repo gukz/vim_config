@@ -1,16 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
-let g:iswindows = 0
-let g:islinux = 0
-if(has("win32") || has("win64") || has("win95") || has("win16"))
-    let g:iswindows = 1
-else
-    let g:islinux = 1
-endif
-" 1500ms 定时任务
+" 500ms 定时任务
 " 1. 文件在其他地方修改时，自动更新
-let timer = timer_start(1500, 'Fresh', {'repeat': -1})
+let timer = timer_start(500, 'Fresh', {'repeat': -1})
 set autoread                    " 当文件被改动时自动载入buffer
-function Fresh(arg)
+function! Fresh(arg)
     " 检查文件是否被改动，如果没改动就加载到buffer
     execute 'checktime'
 endfunction
@@ -36,7 +29,7 @@ autocmd BufReadPost *
 if g:cursystem == 1
     set backup
     function Bkdir()
-        let $BKODIR=expand("~/.vim/vimbackup")
+        let $BKODIR=expand(g:BackUpDir)
         let $RUNTIMEPATH=expand("%:p:h")
         let $BKDIR=$BKODIR.$RUNTIMEPATH
         if !isdirectory(expand("$BKDIR"))
@@ -45,7 +38,7 @@ if g:cursystem == 1
         let &backupdir=expand("$BKDIR")
     endfunction
     function BKLatest()
-        let $BKODIR=expand("~/.vim/vimbackup")
+        let $BKODIR=expand()
         let $RUNTIMEPATH=expand("%:p:h")
         let $BKDIR=$BKODIR.$RUNTIMEPATH
         " 拷贝当前文件过去

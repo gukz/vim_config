@@ -98,6 +98,9 @@ set hlsearch                   " 搜索逐字符高亮
 set incsearch
 set smartcase                  " 搜索字符中出现大写字符时大小写敏感，否则不敏感
 
+set t_Co=256
+set guifont=Consolas:h14:cANSI
+
 set encoding=utf-8             " 编码设置
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set langmenu=zh_CN.UTF-8       " menu语言设置
@@ -114,13 +117,6 @@ set splitright
 set autowrite                  " 自动保存
 " set history=1000               " 历史记录数
 set noswapfile                 " 禁止生成临时文件
-
-" gvim 配置
-if has("gui_running")
-    set guifont=Consolas:h14:cANSI
-else
-    set t_Co=256
-endif
 
 if g:cursystem == 0
     set shell=powershell.exe

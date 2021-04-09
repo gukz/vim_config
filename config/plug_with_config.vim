@@ -1,12 +1,23 @@
 if g:cursystem == 0
-    call plug#begin('c:\\vim_config\\user_plug')
+    call plug#begin(expand(g:vimfiles)."/user_plug_win")
 else
-    call plug#begin('~/.vim/user_plug')
+    call plug#begin(expand(g:vimfiles)."/user_plug")
 endif
 
 """""""""""""""""""""""""""""""""""""
+" 输入 :{number} 直接预览buffer
+Plug 'nacro90/numb.nvim'
+"""""""""""""""""""""""""""""""""""""
+" neovim 公共icon插件
+Plug 'kyazdani42/nvim-web-devicons'
+"""""""""""""""""""""""""""""""""""""
 " 一些自定义的插件
 Plug 'gukz/customVimPlug'
+"""""""""""""""""""""""""""""""""""""
+Plug 'jiangmiao/auto-pairs'
+"""""""""""""""""""""""""""""""""""""
+Plug 'kien/rainbow_parentheses.vim'
+"""""""""""""""""""""""""""""""""""""
 " 当打开vim且没有文件时自动打开NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 " 只剩 NERDTree时自动关闭
@@ -273,6 +284,7 @@ if executable('gopls')
         " exec "w"
     endfunction
 endif
+
 call plug#end()
 
 colorscheme gruvbox
