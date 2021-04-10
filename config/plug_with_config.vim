@@ -5,6 +5,27 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""
+" 浮动窗口命令行
+Plug 'voldikss/vim-floaterm'
+"""""""""""""""""""""""""""""""""""""
+Plug 'norcalli/nvim-colorizer.lua'
+"""""""""""""""""""""""""""""""""""""
+" y一些语法高亮
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'MTDL9/vim-log-highlighting'
+Plug 'towolf/vim-helm'  
+"""""""""""""""""""""""""""""""""""""
+Plug 'dstein64/vim-startuptime'
+" Launch vim-startuptime with :StartupTime. 
+" Press K on events to get additional information. 
+" Press gf on sourcing events to load the corresponding file in a new split.
+"""""""""""""""""""""""""""""""""""""
+Plug 'cocopon/colorswatch.vim'
+" :ColorSwatchGenerate
+"""""""""""""""""""""""""""""""""""""
+Plug 'deris/vim-shot-f'
+" Highlight characters to move directly with f/t/F/T
+"""""""""""""""""""""""""""""""""""""
 " 输入 :{number} 直接预览buffer
 Plug 'nacro90/numb.nvim'
 """""""""""""""""""""""""""""""""""""
@@ -288,3 +309,5 @@ endif
 call plug#end()
 
 colorscheme gruvbox
+lua require'colorizer'.setup()
+
