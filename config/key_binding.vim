@@ -25,20 +25,18 @@ nmap <leader>k <Plug>(easymotion-k)
 nmap <leader>h <Plug>(easymotion-linebackward)
 " nmap s <Plug>(easymotion-overwin-f2)
 
-nnoremap <leader>b :call common#gitblame()<CR>
-nnoremap <leader>c :call common#CleanBuffer()<CR>
+nnoremap <leader>b :call GitBlame()<CR>
+nnoremap <leader>c :call CleanBuffer()<CR>
 noremap <leader>; :
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-nnoremap <leader>o :call common#OpenInNewTab()<CR>
+nnoremap <leader>o :call OpenInNewTab()<CR>
 nnoremap <cr> :noh<cr><cr>
 noremap <leader>ga :argadd **/*.
 noremap <leader>gd :argdo e
 
 tnoremap <esc><esc> <c-\><c-n>
 " 全文检索
-" nnoremap <leader>s :call common#search()<CR>
-" nnoremap <leader>S :call common#search("")<CR>
 nnoremap <leader>s :Clap grep<CR>
 nnoremap <leader>F :Clap files<CR>
 nnoremap <leader>f :Clap gfiles<CR>
@@ -70,7 +68,7 @@ nnoremap <c-h> <c-w>h
 nnoremap = <c-w>=
 nnoremap - <c-w>-
 nnoremap + <c-w>+
-nnoremap <F3> :call common#ToggleLineNumber()<CR>
+nnoremap <F3> :call ToggleLineNumber()<CR>
 autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 """"""""""""""""""""""
 " language server
