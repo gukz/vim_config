@@ -5,23 +5,21 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""
+" syntax
+Plug 'sheerun/vim-polyglot'
+"""""""""""""""""""""""""""""""""""""
+Plug 'neovim/nvim-lspconfig'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"""""""""""""""""""""""""""""""""""""
 " 浮动窗口命令行
 Plug 'voldikss/vim-floaterm'
 """""""""""""""""""""""""""""""""""""
 Plug 'norcalli/nvim-colorizer.lua'
 """""""""""""""""""""""""""""""""""""
-" y一些语法高亮
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'MTDL9/vim-log-highlighting'
-Plug 'towolf/vim-helm'  
-"""""""""""""""""""""""""""""""""""""
 Plug 'dstein64/vim-startuptime'
 " Launch vim-startuptime with :StartupTime. 
 " Press K on events to get additional information. 
 " Press gf on sourcing events to load the corresponding file in a new split.
-"""""""""""""""""""""""""""""""""""""
-Plug 'cocopon/colorswatch.vim'
-" :ColorSwatchGenerate
 """""""""""""""""""""""""""""""""""""
 Plug 'deris/vim-shot-f'
 " Highlight characters to move directly with f/t/F/T
@@ -230,7 +228,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-"""""""""""""""""""""""""""""""""""""
+" """""""""""""""""""""""""""""""""""""
 Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'clap'
 let g:OmniSharp_selector_findusages = 'clap'
@@ -261,53 +259,51 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 """""""""""""""""""""""""""""""""""""
 " lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-let g:lsp_signs_enabled = 0
-let g:lsp_diagnostics_echo_cursor = 1
-highlight link LspErrorText GruvboxRedSign " requires gruvbox
-highlight clear LspWarningLine
-let g:lsp_highlight_references_enabled = 1
-highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-
-
-" python
-" pip install python-language-server
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-    autocmd! BufWritePre *.py silent call LspFormat()
-    function! LspFormat()
-        exec "LspDocumentFormat"
-        sleep 300m
-        " exec "w"
-    endfunction
-endif
-" golang
-" go get -u golang.org/x/tools/cmd/gopls
-" go get -u github.com/sourcegraph/go-langserver
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd! BufWritePre *.go silent call LspFormat()
-    function! LspFormat()
-        exec "LspDocumentFormat"
-        sleep 300m
-        " exec "w"
-    endfunction
-endif
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"
+" let g:lsp_signs_enabled = 0
+" let g:lsp_diagnostics_echo_cursor = 1
+" highlight link LspErrorText GruvboxRedSign " requires gruvbox
+" highlight clear LspWarningLine
+" let g:lsp_highlight_references_enabled = 1
+" highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
+"
+"
+" " python
+" " pip install python-language-server
+" if executable('pyls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+"     autocmd! BufWritePre *.py silent call LspFormat()
+"     function! LspFormat()
+"         exec "LspDocumentFormat"
+"         sleep 300m
+"         " exec "w"
+"     endfunction
+" endif
+" " golang
+" " go get -u golang.org/x/tools/cmd/gopls
+" " go get -u github.com/sourcegraph/go-langserver
+" if executable('gopls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'gopls',
+"         \ 'cmd': {server_info->['gopls']},
+"         \ 'whitelist': ['go'],
+"         \ })
+"     autocmd! BufWritePre *.go silent call LspFormat()
+"     function! LspFormat()
+"         exec "LspDocumentFormat"
+"         sleep 300m
+"         " exec "w"
+"     endfunction
+" endif
 
 call plug#end()
 
 colorscheme gruvbox
-lua require'colorizer'.setup()
-

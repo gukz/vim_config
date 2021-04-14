@@ -40,8 +40,8 @@ tnoremap <esc><esc> <c-\><c-n>
 " nnoremap <leader>s :call common#search()<CR>
 " nnoremap <leader>S :call common#search("")<CR>
 nnoremap <leader>s :Clap grep<CR>
-nnoremap <leader>f :Clap gfiles<CR>
 nnoremap <leader>F :Clap files<CR>
+nnoremap <leader>f :Clap gfiles<CR>
 " 查找文件、引用
 nnoremap <leader>a :AnyJump<CR>
 nnoremap <leader>p :echo expand("%:P")<CR>
@@ -97,10 +97,10 @@ autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 " :LspTypeDefinition	Go to the type definition of the word under the cursor, and open in the current window
 " :LspWorkspaceSymbol	Search/Show workspace symbol
 " 键绑定
-nnoremap gn :LspNextDiagnostic<CR>
-nnoremap gl :LspDocumentDiagnostics<CR>
-nnoremap gd :LspDefinition<CR>
-nnoremap gh :LspHover<CR>
-nnoremap gs :LspStatus<CR>
-nnoremap gr :LspReferences<CR>
+" nnoremap gn :LspNextDiagnostic<CR>
+" nnoremap gl :LspDocumentDiagnostics<CR>
+" nnoremap gd :LspDefinition<CR>
+" nnoremap gh :LspHover<CR>
+" nnoremap gs :LspStatus<CR>
+" nnoremap gr :LspReferences<CR>
 """"""""""""""""""""""

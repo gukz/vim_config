@@ -1,3 +1,4 @@
+
 这是一篇介绍如何使用vim的笔记。
 # vim 是啥
 - vim 是一个可配置的文本编辑器，可以灵活的编辑任何格式的文本。
@@ -178,3 +179,5 @@ endfunction
 - [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 - [vim帮助手册](https://vimhelp.org/)
 - [Vim Scripting through Python](http://heather.cs.ucdavis.edu/~matloff/Python/PyVimscript.html)
+困难的事是赚钱的：考有含金量的证、人生的上坡、股票的上涨、学到有用东西、赚甲方的钱、贷款、拒绝别人、讨价还价、过脑子后的反思总结记忆、戒烟、突破阶层
+容易的事是亏钱的：老好人、舔狗、消费时别人笑脸相迎、一遍遍的简单重复、简单的听信别人、免费的游戏、抽烟、存钱、免费的视频文章丢了的是时间
