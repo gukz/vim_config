@@ -90,12 +90,12 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
-local pid = vim.fn.getpid()
-local omnisharp_bin = "c:/dev/vimfiles/ls/omnisharp-win-x64/OmniSharp.exe"
-nvim_lsp['omnisharp'].setup{
-    cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
-    on_attach = on_attach;
-}
+-- local pid = vim.fn.getpid()
+-- local omnisharp_bin = "c:/dev/vimfiles/ls/omnisharp-win-x64/OmniSharp.exe"
+-- nvim_lsp['omnisharp'].setup{
+--     cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+--     on_attach = on_attach;
+-- }
 EOF
 
 " 微信小程序
