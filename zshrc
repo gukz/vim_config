@@ -108,7 +108,7 @@ export TERM=xterm-256color
 # golang
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
-export PATH=$PATH:/g/go1.14linux/bin
+export PATH=$PATH:/g/go1.14linux/bin:/opt/riscv/bin
 export GOPATH="/g/gopath"
 export GGO111MODULE="on"
 export GOPROXY="https://goproxy.cn/"
