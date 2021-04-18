@@ -1,96 +1,83 @@
 if g:cursystem == 0
-    call plug#begin('c:\\vim_config\\user_plug')
+    call plug#begin(expand(g:vimfiles)."/user_plug_win")
 else
-    call plug#begin('~/.vim/user_plug')
+    call plug#begin(expand(g:vimfiles)."/user_plug")
 endif
 
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+"""""""""""""""""""""""""""""""""""""
+" syntax
+Plug 'sheerun/vim-polyglot'
+"""""""""""""""""""""""""""""""""""""
+Plug 'neovim/nvim-lspconfig'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"""""""""""""""""""""""""""""""""""""
+" 浮动窗口命令行
+Plug 'voldikss/vim-floaterm'
+"""""""""""""""""""""""""""""""""""""
+Plug 'norcalli/nvim-colorizer.lua'
+"""""""""""""""""""""""""""""""""""""
+Plug 'dstein64/vim-startuptime'
+" Launch vim-startuptime with :StartupTime. 
+" Press K on events to get additional information. 
+" Press gf on sourcing events to load the corresponding file in a new split.
+"""""""""""""""""""""""""""""""""""""
+Plug 'deris/vim-shot-f'
+" Highlight characters to move directly with f/t/F/T
+"""""""""""""""""""""""""""""""""""""
+" 输入 :{number} 直接预览buffer
+Plug 'nacro90/numb.nvim'
+"""""""""""""""""""""""""""""""""""""
+" neovim 公共icon插件
+Plug 'kyazdani42/nvim-web-devicons'
+"""""""""""""""""""""""""""""""""""""
+" 一些自定义的插件
+Plug 'gukz/customVimPlug'
+"""""""""""""""""""""""""""""""""""""
+Plug 'jiangmiao/auto-pairs'
+"""""""""""""""""""""""""""""""""""""
+Plug 'kien/rainbow_parentheses.vim'
+"""""""""""""""""""""""""""""""""""""
+" 当打开vim且没有文件时自动打开NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+" 只剩 NERDTree时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName)!= -1) | q | endif
+"let NERDTreeShowLineNumbers=1                 " 显示行号
+let g:NERDTreeAutoCenter=1
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=0                       " 是否显示隐藏文件
+let g:NERDTreeWinSize=30                       " 设置宽度
+let g:nerdtree_tabs_open_on_console_startup=1  " 在终端启动vim时，共享NERDTree
+let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__', '\bin', '\cache']     " 忽略一下文件的显示
+" let NERDTreeShowBookmarks=1                    " 显示书签列表
+" 显示目录
+"""""""""""""""""""""""""""""""""""""
+" 在echo中打印帮助文档
+Plug 'Shougo/echodoc.vim'
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'popup'
+highlight link EchoDocPopup Pmenu
+"""""""""""""""""""""""""""""""""""""
 " 搜索神器
 Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_theme = { 'search_text': {'guifg': 'red', 'ctermfg': 'red'} }
+let g:clap_disable_run_rooter=v:true
+let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-x': 'split', 'ctrl-v': 'vsplit'  }
+"""""""""""""""""""""""""""""""""""""
 Plug 'rhysd/accelerated-jk'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'itchyny/lightline.vim'
-Plug 'dyng/ctrlsf.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
-" lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
- 
-Plug 'skywind3000/asyncrun.vim'
-Plug 'skywind3000/vim-terminal-help'
-" 注释
-Plug 'preservim/nerdcommenter'
-" 配色
-Plug 'morhetz/gruvbox'
-" 键绑定
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" " 禁止使用jjjjjjjj来移动光标
-" Plug 'takac/vim-hardtime'
-" 扩充vim text object
-Plug 'wellle/targets.vim'
-" 补全整合插件
-" Plug 'codota/tabnine-vim'
-" vim session 保存相关
-Plug 'tpope/vim-obsession'
-" " jump code
-Plug 'pechorin/any-jump.vim'
-" " vim使用情况统计
-" Plug 'wakatime/vim-wakatime'
-" quickfix 预览
-Plug 'bfrg/vim-qf-preview'
-" 快速跳转
-" Plug 'easymotion/vim-easymotion'
-Plug 'fidian/hexmode'
-Plug 'psliwka/vim-smoothie'
-Plug 'itchyny/vim-cursorword'
-" csharp
-Plug 'OmniSharp/omnisharp-vim'
-" " 替换功能及时预览
-Plug 'markonm/traces.vim'
-" leader ww快速交换窗口
-Plug 'wesQ3/vim-windowswap'
-call plug#end()
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'rhysd/accelerated-jk'
 let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'OmniSharp/omnisharp-vim'
-" let g:OmniSharp_selector_ui = 'fzf'
-" let g:OmniSharp_translate_cygwin_wsl = 1
-" let g:OmniSharp_server_path = '/home/gukz/omnisharp/omnisharp-roslyn/run'
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'dyng/ctrlsf.vim'
-let g:ctrlsf_default_view_mode = 'compact'
-let g:ctrlsf_populate_qflist = 1
-let g:ctrlsf_regex_pattern = 1
-let g:ctrlsf_search_mode = 'async'
-let g:ctrlsf_position = 'bottom'
-let g:ctrlsf_winsize = '0'
-let g:ctrlsf_mapping = {
-    \ "next": "j",
-    \ "prev": "k",
-    \ "openb": "",
-    \ "vsplit": "<C-o>",
-    \ "quit": "<C-C>",
-    \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'fidian/hexmode'
-let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'plasticboy/vim-markdown'
+"""""""""""""""""""""""""""""""""""""
+Plug 'godlygeek/tabular'
+"""""""""""""""""""""""""""""""""""""
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_fenced_languages = ["c=cpp", "c++=cpp", "viml=vim", "bash=sh", "ini=dosini", "golang=go"]
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_folding_level = 6
 let g:vim_markdown_folding_style_pythonic = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'itchyny/lightline.vim'
+"""""""""""""""""""""""""""""""""""""
+Plug 'itchyny/lightline.vim'
+
      " \ 'colorscheme': 'wombat',
      " \   'lineinfo': '%3l:%-2v%<',
      " \ 'component': {
@@ -101,208 +88,26 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [ [ 'fileformat', 'fileencoding', 'filetype' ] ],
       \ },
       \ 'component': {
-      \   'charvaluehex': '0x%B',
       \ },
       \ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 1 " Disable default mappings
-let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1 " US layout
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'bfrg/vim-qf-preview'
-augroup qfpreview
-    autocmd!
-    autocmd FileType qf nmap <buffer> p <plug>(qf-preview-open)
-augroup END
-let g:qfpreview = {
-    \ 'scrollup': 'k',
-    \ 'scrolldown': 'j',
-    \ 'halfpageup': 'u',
-    \ 'halfpagedown': 'd',
-    \ 'fullpageup': 'b',
-    \ 'fullpagedown': 'f',
-    \ 'close': 'q',
-    \ 'scrollbar': 0,
-    \ 'mouseclick': 'none',
-    \ 'height': 20
-    \ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'pechorin/any-jump.vim'
-" Show line numbers in search rusults
-let g:any_jump_list_numbers = 1
-
-" Auto search references
-let g:any_jump_references_enabled = 1
-let g:any_jump_definitions_enables = 0
-" Auto group results by filename
-let g:any_jump_grouping_enabled = 1
-
-" Amount of preview lines for each search result
-let g:any_jump_preview_lines_count = 5
-
-" Max search results, other results can be opened via [a]
-let g:any_jump_max_search_results = 10
-
-" Prefered search engine: rg or ag
-let g:any_jump_search_prefered_engine = 'ag'
-
-
-" Search results list styles:
-" - 'filename_first'
-" - 'filename_last'
-let g:any_jump_results_ui_style = 'filename_first'
-
-" Any-jump window size & position options
-let g:any_jump_window_width_ratio  = 0.6
-let g:any_jump_window_height_ratio = 0.6
-let g:any_jump_window_top_offset   = 4
-
-" Customize any-jump colors with extending default color scheme:
-let g:any_jump_colors = { "help": "Comment" }
-
-" Or override all default colors
-let g:any_jump_colors = {
-      \"plain_text":         "Comment",
-      \"preview":            "Normal",
-      \"preview_keyword":    "Operator",
-      \"heading_text":       "Function",
-      \"heading_keyword":    "Identifier",
-      \"group_text":         "Comment",
-      \"group_name":         "Function",
-      \"more_button":        "Operator",
-      \"more_explain":       "Comment",
-      \"result_line_number": "Comment",
-      \"result_text":        "Statement",
-      \"result_path":        "String",
-      \"help":               "Comment"
-      \}
-
-" Disable default any-jump keybindings (default: 0)
-let g:any_jump_disable_default_keybindings = 1
-
-" Remove comments line from search results (default: 1)
-let g:any_jump_remove_comments_from_results = 1
-
-" Custom ignore files
-" default is: ['*.tmp', '*.temp']
-let g:any_jump_ignored_files = ['*.tmp', '*.temp', '__pycache__']
-
-" Search references only for current file type
-" (default: false, so will find keyword in all filetypes)
-let g:any_jump_references_only_for_current_filetype = 1
-
-" Disable search engine ignore vcs untracked files
-" (default: false, search engine will ignore vcs untracked files)
-let g:any_jump_disable_vcs_ignore = 0
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'mattn/vim-lsp-settings'
-" 支持的语言以及安装方法
-" https://github.com/mattn/vim-lsp-settings#supported-languages
-" let g:lsp_settings = {
-" \  'pyls': {'cmd': {server_info->['pyls']}},
-" \  'gopls': {'cmd': {server_info->['gopls']}},
-" \}
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'prabirshrestha/vim-lsp'
-let g:lsp_signs_enabled = 0
-let g:lsp_diagnostics_echo_cursor = 1
-highlight link LspErrorText GruvboxRedSign " requires gruvbox
-highlight clear LspWarningLine
-let g:lsp_highlight_references_enabled = 1
-highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-
-
-" python
-" pip install python-language-server
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-    autocmd! BufWritePre *.py silent call LspFormat()
-    function! LspFormat()
-        exec "LspDocumentFormat"
-        sleep 300m
-        " exec "w"
-    endfunction
-endif
-" golang
-" go get -u golang.org/x/tools/cmd/gopls
-" go get -u github.com/sourcegraph/go-langserver
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd! BufWritePre *.go silent call LspFormat()
-    function! LspFormat()
-        exec "LspDocumentFormat"
-        sleep 300m
-        " exec "w"
-    endfunction
-endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" takac/vim-hardtime
-let g:hardtime_default_on = 0
-let g:hardtime_showmsg = 0
-let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
-let g:hardtime_ignore_quickfix = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" liuchengxu/vim-which-key
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" skywind3000/asyncrun.vim
+"""""""""""""""""""""""""""""""""""""
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"""""""""""""""""""""""""""""""""""""
+" vim寄存器
+Plug 'tversteeg/registers.nvim'
+"""""""""""""""""""""""""""""""""""""
+Plug 'gennaro-tedesco/nvim-peekup'
+"""""""""""""""""""""""""""""""""""""
+Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 8
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" morhetz/gruvbox
-let g:gruvbox_contrast_dark='soft'
-colorscheme gruvbox
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" 当打开vim且没有文件时自动打开NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-" 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName)!= -1) | q | endif
-"let NERDTreeShowLineNumbers=1                 " 显示行号
-let g:NERDTreeAutoCenter=1
-let g:NERDTreeWinPos = "right"
-"let NERDTreeShowHidden=1                      " 是否显示隐藏文件
-let g:NERDTreeWinSize=30                       " 设置宽度
-let g:nerdtree_tabs_open_on_console_startup=1  " 在终端启动vim时，共享NERDTree
-let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__']     " 忽略一下文件的显示
-" let NERDTreeShowBookmarks=1                    " 显示书签列表
-" 显示目录
-nnoremap <C-n> :NERDTreeToggle<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
-let g:clap_layout = { 'relative': 'editor' }
-let g:clap_theme = { 'search_text': {'guifg': 'red', 'ctermfg': 'red'} }
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf 配置
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'CursorLine'],
-  \ 'hl':      ['fg', 'Search'],
-  \ 'fg+':     ['fg', 'Search', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine'],
-  \ 'hl+':     ['fg', 'Statement'], }
-  " \ 'info':    ['fg', 'PreProc'],
-  " \ 'border':  ['fg', 'Ignore'],
-  " \ 'prompt':  ['fg', 'Conditional'],
-  " \ 'pointer': ['fg', 'Exception'],
-  " \ 'marker':  ['fg', 'KeyWord'],
-  " \ 'spinner': ['fg', 'Label'],
-  " \ 'header':  ['fg', 'Comment'] }
-
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" preservim/nerdcommenter
+"""""""""""""""""""""""""""""""""""""
+Plug 'skywind3000/vim-terminal-help'
+"""""""""""""""""""""""""""""""""""""
+" 注释
+Plug 'preservim/nerdcommenter'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -345,4 +150,160 @@ let g:NERDToggleCheckAllLines = 1
 " Same as |NERDCommenterComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
 " [count]<leader>cu |NERDCommenterUncomment|
 " Uncomments the selected line(s).
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 配色
+Plug 'morhetz/gruvbox'
+let g:gruvbox_contrast_dark='soft'
+"""""""""""""""""""""""""""""""""""""
+" 键绑定
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+"""""""""""""""""""""""""""""""""""""
+" 禁止使用jjjjjjjj来移动光标
+" Plug 'takac/vim-hardtime'
+let g:hardtime_default_on = 0
+let g:hardtime_showmsg = 0
+let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
+let g:hardtime_ignore_quickfix = 1
+"""""""""""""""""""""""""""""""""""""
+" 扩充vim text object
+Plug 'wellle/targets.vim'
+"""""""""""""""""""""""""""""""""""""
+" Plug 'codota/tabnine-vim'
+"""""""""""""""""""""""""""""""""""""
+" vim session 保存相关
+Plug 'tpope/vim-obsession'
+"""""""""""""""""""""""""""""""""""""
+" jump code
+Plug 'pechorin/any-jump.vim'
+let g:any_jump_disable_default_keybindings = 1
+let g:any_jump_remove_comments_from_results = 1
+let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.pyc', '*.dll', '*/bin/*', '*/obj/*']
+let g:any_jump_disable_vcs_ignore = 0
+"""""""""""""""""""""""""""""""""""""
+" 多光标选中
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"""""""""""""""""""""""""""""""""""""
+" vim使用情况统计
+" Plug 'wakatime/vim-wakatime'
+"""""""""""""""""""""""""""""""""""""
+" quickfix 预览
+Plug 'bfrg/vim-qf-preview'
+augroup qfpreview
+    autocmd!
+    autocmd FileType qf nmap <buffer> p <plug>(qf-preview-open)
+augroup END
+let g:qfpreview = {
+    \ 'scrollup': 'k',
+    \ 'scrolldown': 'j',
+    \ 'halfpageup': 'u',
+    \ 'halfpagedown': 'd',
+    \ 'fullpageup': 'b',
+    \ 'fullpagedown': 'f',
+    \ 'close': 'q',
+    \ 'scrollbar': 0,
+    \ 'mouseclick': 'none',
+    \ 'height': 20
+    \ }
+"""""""""""""""""""""""""""""""""""""
+" 快速跳转
+Plug 'easymotion/vim-easymotion'
+
+let g:EasyMotion_do_mapping = 1 " Disable default mappings
+let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1 " US layout
+"""""""""""""""""""""""""""""""""""""
+Plug 'fidian/hexmode'
+let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
+"""""""""""""""""""""""""""""""""""""
+Plug 'psliwka/vim-smoothie'
+"""""""""""""""""""""""""""""""""""""
+Plug 'itchyny/vim-cursorword'
+"""""""""""""""""""""""""""""""""""""
+" csharp
+Plug 'vim-syntastic/syntastic'
+let g:syntastic_cs_checkers = ['OmniSharp']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+" """""""""""""""""""""""""""""""""""""
+Plug 'OmniSharp/omnisharp-vim'
+let g:OmniSharp_selector_ui = 'clap'
+let g:OmniSharp_selector_findusages = 'clap'
+let g:OmniSharp_diagnostic_exclude_paths = [
+\ 'obj\\',
+\ 'bin\\',
+\ 'packages\\',
+\ 'TestResults\\',
+\ 'out\\',
+\ 'Debug\\',
+\ 'Release\\',
+\ '[Tt]emp\\',
+\ '\.nuget\\',
+\ '\<AssemblyInfo\.cs\>'
+\]
+let g:OmniSharp_diagnostic_overrides = {
+\ 'IDE0010': {'type': 'I'},
+\ 'IDE0055': {'type': 'W', 'subtype': 'Style'},
+\ 'CS8019': {'type': 'None'},
+\ 'RemoveUnnecessaryImportsFixable': {'type': 'None'}
+\}
+
+"""""""""""""""""""""""""""""""""""""
+" " 替换功能及时预览
+Plug 'markonm/traces.vim'
+"""""""""""""""""""""""""""""""""""""
+" leader ww快速交换窗口
+Plug 'wesQ3/vim-windowswap'
+"""""""""""""""""""""""""""""""""""""
+" lsp
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"
+" let g:lsp_signs_enabled = 0
+" let g:lsp_diagnostics_echo_cursor = 1
+" highlight link LspErrorText GruvboxRedSign " requires gruvbox
+" highlight clear LspWarningLine
+" let g:lsp_highlight_references_enabled = 1
+" highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
+"
+"
+" " python
+" " pip install python-language-server
+" if executable('pyls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+"     autocmd! BufWritePre *.py silent call LspFormat()
+"     function! LspFormat()
+"         exec "LspDocumentFormat"
+"         sleep 300m
+"         " exec "w"
+"     endfunction
+" endif
+" " golang
+" " go get -u golang.org/x/tools/cmd/gopls
+" " go get -u github.com/sourcegraph/go-langserver
+" if executable('gopls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'gopls',
+"         \ 'cmd': {server_info->['gopls']},
+"         \ 'whitelist': ['go'],
+"         \ })
+"     autocmd! BufWritePre *.go silent call LspFormat()
+"     function! LspFormat()
+"         exec "LspDocumentFormat"
+"         sleep 300m
+"         " exec "w"
+"     endfunction
+" endif
+
+call plug#end()
+
+colorscheme gruvbox

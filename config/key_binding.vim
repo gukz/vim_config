@@ -19,37 +19,30 @@ let mapleader=" "
 " omap / <Plug>(easymotion-tn)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
-" nmap <leader>l <Plug>(easymotion-lineforward)
-" nmap <leader>j <Plug>(easymotion-j)
-" nmap <leader>k <Plug>(easymotion-k)
-" nmap <leader>h <Plug>(easymotion-linebackward)
+nmap <leader>l <Plug>(easymotion-lineforward)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
+nmap <leader>h <Plug>(easymotion-linebackward)
 " nmap s <Plug>(easymotion-overwin-f2)
 
-nnoremap <leader>b :call common#gitblame()<CR>
-nnoremap <leader>c :call common#CleanBuffer()<CR>
+nnoremap <leader>b :call GitBlame()<CR>
+nnoremap <leader>c :call CleanBuffer()<CR>
 noremap <leader>; :
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-nnoremap <leader>o :call common#OpenInNewTab()<CR>
+nnoremap <leader>o :call OpenInNewTab()<CR>
 nnoremap <cr> :noh<cr><cr>
 noremap <leader>ga :argadd **/*.
 noremap <leader>gd :argdo e
 
 tnoremap <esc><esc> <c-\><c-n>
-" 输入模式下移动光标
-imap <c-l> <right>
-imap <c-j> <down>
-imap <c-k> <up>
-imap <c-h> <left>
-noremap <leader>t :term<CR>
 " 全文检索
-nnoremap <leader>s :call common#search()<CR>
-" nnoremap <leader>S :call common#search("")<CR>
-nnoremap <leader>S :Clap grep<CR>
-nnoremap <leader>f :Clap files<CR>
+nnoremap <leader>s :Clap grep<CR>
+nnoremap <leader>F :Clap files<CR>
+nnoremap <leader>f :Clap gfiles<CR>
 " 查找文件、引用
 nnoremap <leader>a :AnyJump<CR>
-nnoremap <leader>p :echo expand("%:p")<CR>
+nnoremap <leader>p :echo expand("%:P")<CR>
 " quickfix 窗口
 nnoremap <leader>q :call asyncrun#quickfix_toggle(8)<CR>
 " 异步执行任务，在quick fix 窗口展示结果
@@ -59,6 +52,14 @@ if g:cursystem == 0
 else
     nnoremap <leader>z :!bash<CR>
 endif
+" 文件树
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" 输入模式下移动光标
+imap <c-l> <right>
+imap <c-j> <down>
+imap <c-k> <up>
+imap <c-h> <left>
 " Ctrl + hjkl 切换窗口
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -67,8 +68,7 @@ nnoremap <c-h> <c-w>h
 nnoremap = <c-w>=
 nnoremap - <c-w>-
 nnoremap + <c-w>+
-nnoremap <F3> :call common#ToggleLineNumber()<CR>
-nnoremap <F4> :Autoformat<CR>
+nnoremap <F3> :call ToggleLineNumber()<CR>
 autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 """"""""""""""""""""""
 " language server
@@ -95,10 +95,10 @@ autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 " :LspTypeDefinition	Go to the type definition of the word under the cursor, and open in the current window
 " :LspWorkspaceSymbol	Search/Show workspace symbol
 " 键绑定
-nnoremap gn :LspNextDiagnostic<CR>
-nnoremap gl :LspDocumentDiagnostics<CR>
-nnoremap gd :LspDefinition<CR>
-nnoremap gh :LspHover<CR>
-nnoremap gs :LspStatus<CR>
-nnoremap gr :LspReferences<CR>
+" nnoremap gn :LspNextDiagnostic<CR>
+" nnoremap gl :LspDocumentDiagnostics<CR>
+" nnoremap gd :LspDefinition<CR>
+" nnoremap gh :LspHover<CR>
+" nnoremap gs :LspStatus<CR>
+" nnoremap gr :LspReferences<CR>
 """"""""""""""""""""""

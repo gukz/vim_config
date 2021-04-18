@@ -39,12 +39,13 @@ set selection=exclusive
 set selectmode=mouse,key
 set clipboard=unnamed            " 共享剪贴板
 
-set updatetime=100
+set updatetime=500
 set updatecount =100
 set laststatus=2               " 始终展示状态栏"
 set shortmess=atIc             " 启动的时候不显示那个援助乌干达儿童的提示
 " set shortmess-=S               " 搜索时展示索引
 set signcolumn=no
+set backupcopy=yes             " 保存文件不要修改文件名
 
 set viminfo='1000,f1           " 关闭时记录尽可能多的信息
 set viminfo^=%                 " 关闭时记录buffer内容
@@ -97,6 +98,9 @@ set hlsearch                   " 搜索逐字符高亮
 set incsearch
 set smartcase                  " 搜索字符中出现大写字符时大小写敏感，否则不敏感
 
+set t_Co=256
+set guifont=Consolas:h14:cANSI
+
 set encoding=utf-8             " 编码设置
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set langmenu=zh_CN.UTF-8       " menu语言设置
@@ -111,21 +115,14 @@ set splitbelow
 set splitright
 
 set autowrite                  " 自动保存
-set history=1000               " 历史记录数
+" set history=1000               " 历史记录数
 set noswapfile                 " 禁止生成临时文件
 
-" gvim 配置
-if has("gui_running")
-    set guifont=Consolas:h14:cANSI
-else
-    set t_Co=256
+if g:cursystem == 0
+    set shell=powershell.exe
+    set shellcmdflag=\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>
+    set shellquote=\"
+    set shellxquote=
 endif
-
-" if g:cursystem == 0
-"     set shell=powershell.exe
-"     set shellcmdflag=\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
-"     set shellpipe=|
-"     set shellredir=>
-"     set shellquote=\"
-"     set shellxquote=
-" endif

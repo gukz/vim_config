@@ -2,6 +2,7 @@ __pycache__/
 .DS_Store
 backup/**
 user_plug/**
+user_plug_win/**
 vimbackup/**
 init.vim
-Session.vim
+session*.vim
