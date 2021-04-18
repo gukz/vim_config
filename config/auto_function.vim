@@ -8,14 +8,14 @@ let timer = timer_start(500, 'Fresh', {'repeat': -1})
 set autoread                    " 当文件被改动时自动载入buffer
 function! Fresh(arg)
     " 检查文件是否被改动，如果没改动就加载到buffer
-    execute 'checktime'
+    silent execute 'checktime'
 endfunction
 
 
 " vim 记录上次退出时光标位置
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
+    \   silent exe "normal g`\"" |
     \ endif
 
 
@@ -37,17 +37,17 @@ if g:cursystem == 1
         let $RUNTIMEPATH=expand("%:p:h")
         let $BKDIR=$BKODIR.$RUNTIMEPATH
         if !isdirectory(expand("$BKDIR"))
-            call mkdir(expand("$BKDIR"),"p",0777)
+            silent call mkdir(expand("$BKDIR"),"p",0777)
         endif
         let &backupdir=expand("$BKDIR")
     endfunction
     function BKLatest()
-        let $BKODIR=expand()
+        let $BKODIR=expand(g:BackUpDir)
         let $RUNTIMEPATH=expand("%:p:h")
         let $BKDIR=$BKODIR.$RUNTIMEPATH
         " 拷贝当前文件过去
         let curfile=expand("%:p")
-        execute(":silent !\cp -f ".curfile." ".$BKDIR)
+        silent execute(":silent !\cp -f ".curfile." ".$BKDIR)
     endfunction
     au BufWrite * call Bkdir()
     au BufWritePost * call BKLatest()

@@ -30,9 +30,6 @@ Plug 'nacro90/numb.nvim'
 " neovim 公共icon插件
 Plug 'kyazdani42/nvim-web-devicons'
 """""""""""""""""""""""""""""""""""""
-" 一些自定义的插件
-Plug 'gukz/customVimPlug'
-"""""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""
 Plug 'kien/rainbow_parentheses.vim'
