@@ -16,7 +16,6 @@ else
     let g:BackUpDir = '~/.vim/vimbackup'
 endif
 
-execute(":source ".expand(g:vimfiles)."/config/NERD_tree.vim")
 execute(":source ".expand(g:vimfiles)."/config/plug.vim")
 execute(":source ".expand(g:vimfiles)."/config/basic.vim")
 execute(":source ".expand(g:vimfiles)."/config/auto_function.vim")

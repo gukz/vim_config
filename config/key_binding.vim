@@ -53,7 +53,8 @@ else
     nnoremap <leader>z :!bash<CR>
 endif
 " 文件树
-nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NvimTreeToggle<CR>
 
 " 输入模式下移动光标
 imap <c-l> <right>

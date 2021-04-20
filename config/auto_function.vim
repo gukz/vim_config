@@ -11,6 +11,19 @@ function! Fresh(arg)
     silent execute 'checktime'
 endfunction
 
+" 插入模式下，如果不写代码就开始删除代码 ;)
+let maxTimer = timer_start(500, "TryDeleteCode", {'repeat': -1})
+let s:cur = reltime()
+function! TryDeleteCode(arg)
+    let c = mode()
+    if c == 'i'
+        echo split(reltimestr(reltime(s:cur)))[0]
+    endif
+endfunction
+
+autocmd InsertEnter * let s:cur = reltime()
+autocmd InsertLeave * let s:cur = reltime()
+autocmd InsertCharPre * let s:cur = reltime()
 
 " vim 记录上次退出时光标位置
 autocmd BufReadPost *

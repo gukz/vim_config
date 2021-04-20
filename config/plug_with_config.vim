@@ -5,8 +5,56 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""
+" Install this plugin.
+Plug 'tjdevries/nlua.nvim'
+
+" (OPTIONAL): If you want to use built-in LSP (requires Neovim HEAD)
+"   Currently only supported LSP, but others could work in future if people send PRs :)
+Plug 'neovim/nvim-lspconfig'
+
+" (OPTIONAL): This is recommended to get better auto-completion UX experience for builtin LSP.
+Plug 'nvim-lua/completion-nvim'
+
+" (OPTIONAL): This is a suggested plugin to get better Lua syntax highlighting
+"   but it's not currently required
+Plug 'euclidianAce/BetterLua.vim'
+
+" (OPTIONAL): If you wish to have fancy lua folds, you can check this out.
+Plug 'tjdevries/manillua.nvim'
+"""""""""""""""""""""""""""""""""""""
+" tree sitter
+Plug 'nvim-treesitter/nvim-treesitter'
+"""""""""""""""""""""""""""""""""""""
 " syntax
 Plug 'sheerun/vim-polyglot'
+"""""""""""""""""""""""""""""""""""""
+Plug 'kyazdani42/nvim-tree.lua'
+let g:nvim_tree_side = 'right' "left by default
+let g:nvim_tree_width = 30 "30 by default
+" let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
+" let g:nvim_tree_gitignore = 1 "0 by default
+let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
+let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
+let g:nvim_tree_follow = 0 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_git_hl = 0 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
+let g:nvim_tree_hijack_netrw = 0 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ }
 """""""""""""""""""""""""""""""""""""
 Plug 'neovim/nvim-lspconfig'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,20 +81,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""
 Plug 'kien/rainbow_parentheses.vim'
-"""""""""""""""""""""""""""""""""""""
-" 当打开vim且没有文件时自动打开NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-" 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName)!= -1) | q | endif
-"let NERDTreeShowLineNumbers=1                 " 显示行号
-let g:NERDTreeAutoCenter=1
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0                       " 是否显示隐藏文件
-let g:NERDTreeWinSize=30                       " 设置宽度
-let g:nerdtree_tabs_open_on_console_startup=1  " 在终端启动vim时，共享NERDTree
-let g:NERDTreeIgnore=['\.pyc','\~$','\.swp', '__pycache__', '\bin', '\cache']     " 忽略一下文件的显示
-" let NERDTreeShowBookmarks=1                    " 显示书签列表
-" 显示目录
 """""""""""""""""""""""""""""""""""""
 " 在echo中打印帮助文档
 Plug 'Shougo/echodoc.vim'
@@ -114,7 +148,7 @@ let g:NERDDefaultAlign = 'left'
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
@@ -304,3 +338,21 @@ Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 colorscheme gruvbox
+
+" Your custom attach function for nvim-lspconfig goes here.
+" lua <<<
+" local custom_nvim_lspconfig_attach = function(...) end
+" 
+" " To get builtin LSP running, do something like:
+" " NOTE: This replaces the calls where you would have before done `require('nvim_lsp').sumneko_lua.setup()`
+" require('nlua.lsp.nvim').setup(require('lspconfig'), {
+"   on_attach = custom_nvim_lspconfig_attach,
+" 
+"   -- Include globals you want to tell the LSP are real :)
+"   globals = {
+"     -- Colorbuddy
+"     "Color", "c", "Group", "g", "s",
+"   }
+" })
+" 
+" EOF
