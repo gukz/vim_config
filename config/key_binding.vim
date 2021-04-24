@@ -19,10 +19,10 @@ let mapleader=" "
 " omap / <Plug>(easymotion-tn)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
-nmap <leader>l <Plug>(easymotion-lineforward)
+" nmap <leader>l <Plug>(easymotion-lineforward)
 nmap <leader>j <Plug>(easymotion-j)
 nmap <leader>k <Plug>(easymotion-k)
-nmap <leader>h <Plug>(easymotion-linebackward)
+" nmap <leader>h <Plug>(easymotion-linebackward)
 " nmap s <Plug>(easymotion-overwin-f2)
 
 nnoremap <leader>b :call GitBlame()<CR>
@@ -95,11 +95,4 @@ autocmd! FileType qf nnoremap <buffer> <c-x> <C-w><Enter>
 " :LspStatus	Show the status of the language server
 " :LspTypeDefinition	Go to the type definition of the word under the cursor, and open in the current window
 " :LspWorkspaceSymbol	Search/Show workspace symbol
-" 键绑定
-" nnoremap gn :LspNextDiagnostic<CR>
-" nnoremap gl :LspDocumentDiagnostics<CR>
-" nnoremap gd :LspDefinition<CR>
-" nnoremap gh :LspHover<CR>
-" nnoremap gs :LspStatus<CR>
-" nnoremap gr :LspReferences<CR>
 """"""""""""""""""""""

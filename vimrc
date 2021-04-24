@@ -35,6 +35,17 @@ if !argc()
 endif
 
 " lua << EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = { "go", "python", "c", "c_sharp", "json", "comment" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   ignore_install = { "javascript" }, -- List of parsers to ignore installing
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"     disable = { "c++" },  -- list of language that will be disabled
+"   },
+" }
+" 
+" EOF
+
 " local nvim_lsp = require('lspconfig')
 " local on_attach = function(client, bufnr)
 "   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

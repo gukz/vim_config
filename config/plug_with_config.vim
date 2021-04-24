@@ -5,28 +5,42 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""
-" Install this plugin.
-Plug 'tjdevries/nlua.nvim'
-
-" (OPTIONAL): If you want to use built-in LSP (requires Neovim HEAD)
-"   Currently only supported LSP, but others could work in future if people send PRs :)
-Plug 'neovim/nvim-lspconfig'
-
-" (OPTIONAL): This is recommended to get better auto-completion UX experience for builtin LSP.
-Plug 'nvim-lua/completion-nvim'
-
-" (OPTIONAL): This is a suggested plugin to get better Lua syntax highlighting
-"   but it's not currently required
-Plug 'euclidianAce/BetterLua.vim'
-
-" (OPTIONAL): If you wish to have fancy lua folds, you can check this out.
-Plug 'tjdevries/manillua.nvim'
-"""""""""""""""""""""""""""""""""""""
-" tree sitter
-Plug 'nvim-treesitter/nvim-treesitter'
-"""""""""""""""""""""""""""""""""""""
 " syntax
 Plug 'sheerun/vim-polyglot'
+"""""""""""""""""""""""""""""""""""""
+Plug 'kyazdani42/nvim-web-devicons'
+"""""""""""""""""""""""""""""""""""""
+" tree sitter
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/completion-treesitter'
+" let g:completion_chain_complete_list = {
+"             \'default' : {
+"             \    'default' : [
+"             \        {'complete_items' : ['lsp', 'snippet']},
+"             \        {'mode' : 'file'}
+"             \    ],
+"             \    'comment' : [],
+"             \    'string' : []
+"             \    },
+"             \'vim' : [
+"             \    {'complete_items': ['snippet']},
+"             \    {'mode' : 'cmd'}
+"             \    ],
+"             \'c' : [
+"             \    {'complete_items': ['ts']}
+"             \    ],
+"             \'python' : [
+"             \    {'complete_items': ['ts']}
+"             \    ],
+"             \'lua' : [
+"             \    {'complete_items': ['ts']}
+"             \    ],
+"             \'go' : [
+"             \    {'complete_items': ['ts']}
+"             \    ],
+"             \}
+" autocmd BufEnter * lua require'completion'.on_attach()
 """""""""""""""""""""""""""""""""""""
 Plug 'kyazdani42/nvim-tree.lua'
 let g:nvim_tree_side = 'right' "left by default
@@ -56,11 +70,9 @@ let g:nvim_tree_show_icons = {
     \ 'files': 0,
     \ }
 """""""""""""""""""""""""""""""""""""
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lsp'
+" Plug 'neovim/nvim-lspconfig'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"""""""""""""""""""""""""""""""""""""
-" 浮动窗口命令行
-Plug 'voldikss/vim-floaterm'
 """""""""""""""""""""""""""""""""""""
 Plug 'norcalli/nvim-colorizer.lua'
 """""""""""""""""""""""""""""""""""""
@@ -72,21 +84,12 @@ Plug 'dstein64/vim-startuptime'
 Plug 'deris/vim-shot-f'
 " Highlight characters to move directly with f/t/F/T
 """""""""""""""""""""""""""""""""""""
-" 输入 :{number} 直接预览buffer
-Plug 'nacro90/numb.nvim'
-"""""""""""""""""""""""""""""""""""""
 " neovim 公共icon插件
 Plug 'kyazdani42/nvim-web-devicons'
 """""""""""""""""""""""""""""""""""""
 Plug 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""
 Plug 'kien/rainbow_parentheses.vim'
-"""""""""""""""""""""""""""""""""""""
-" 在echo中打印帮助文档
-Plug 'Shougo/echodoc.vim'
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'popup'
-highlight link EchoDocPopup Pmenu
 """""""""""""""""""""""""""""""""""""
 " 搜索神器
 Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
@@ -290,69 +293,68 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 """""""""""""""""""""""""""""""""""""
 " lsp
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"
-" let g:lsp_signs_enabled = 0
-" let g:lsp_diagnostics_echo_cursor = 1
-" highlight link LspErrorText GruvboxRedSign " requires gruvbox
-" highlight clear LspWarningLine
-" let g:lsp_highlight_references_enabled = 1
-" highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-"
-"
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+let g:lsp_signs_enabled = 0
+let g:lsp_diagnostics_echo_cursor = 1
+highlight link LspErrorText GruvboxRedSign " requires gruvbox
+highlight clear LspWarningLine
+let g:lsp_highlight_references_enabled = 1
+highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
+
+
 " " python
 " " pip install python-language-server
-" if executable('pyls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'pyls',
-"         \ 'cmd': {server_info->['pyls']},
-"         \ 'whitelist': ['python'],
-"         \ })
-"     autocmd! BufWritePre *.py silent call LspFormat()
-"     function! LspFormat()
-"         exec "LspDocumentFormat"
-"         sleep 300m
-"         " exec "w"
-"     endfunction
-" endif
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 " " golang
 " " go get -u golang.org/x/tools/cmd/gopls
 " " go get -u github.com/sourcegraph/go-langserver
-" if executable('gopls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'gopls',
-"         \ 'cmd': {server_info->['gopls']},
-"         \ 'whitelist': ['go'],
-"         \ })
-"     autocmd! BufWritePre *.go silent call LspFormat()
-"     function! LspFormat()
-"         exec "LspDocumentFormat"
-"         sleep 300m
-"         " exec "w"
-"     endfunction
-" endif
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.py,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 call plug#end()
 
 colorscheme gruvbox
-
-" Your custom attach function for nvim-lspconfig goes here.
-" lua <<<
-" local custom_nvim_lspconfig_attach = function(...) end
-" 
-" " To get builtin LSP running, do something like:
-" " NOTE: This replaces the calls where you would have before done `require('nvim_lsp').sumneko_lua.setup()`
-" require('nlua.lsp.nvim').setup(require('lspconfig'), {
-"   on_attach = custom_nvim_lspconfig_attach,
-" 
-"   -- Include globals you want to tell the LSP are real :)
-"   globals = {
-"     -- Colorbuddy
-"     "Color", "c", "Group", "g", "s",
-"   }
-" })
-" 
-" EOF
