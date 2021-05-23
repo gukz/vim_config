@@ -6,7 +6,7 @@ endif
 
 """""""""""""""""""""""""""""""""""""
 " syntax
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 """""""""""""""""""""""""""""""""""""
 Plug 'kyazdani42/nvim-web-devicons'
 """""""""""""""""""""""""""""""""""""
@@ -47,7 +47,7 @@ let g:nvim_tree_side = 'right' "left by default
 let g:nvim_tree_width = 30 "30 by default
 " let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 " let g:nvim_tree_gitignore = 1 "0 by default
-let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_open = 0 "0 by default, opens the tree when typing `vim $DIR` or `vim`
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
 let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
@@ -101,7 +101,7 @@ let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-x': 'split', 'ctrl-v': '
 Plug 'rhysd/accelerated-jk'
 let g:accelerated_jk_acceleration_table = [2, 4, 7, 15]
 """""""""""""""""""""""""""""""""""""
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 """""""""""""""""""""""""""""""""""""
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_fenced_languages = ["c=cpp", "c++=cpp", "viml=vim", "bash=sh", "ini=dosini", "golang=go"]
@@ -137,8 +137,8 @@ Plug 'gennaro-tedesco/nvim-peekup'
 """""""""""""""""""""""""""""""""""""
 Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 8
-"""""""""""""""""""""""""""""""""""""
-Plug 'skywind3000/vim-terminal-help'
+:""""""""""""""""""""""""""""""""""""
+" Plug 'skywind3000/vim-terminal-help'
 """""""""""""""""""""""""""""""""""""
 " 注释
 Plug 'preservim/nerdcommenter'
@@ -216,7 +216,7 @@ let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.pyc', '*.dll', '*/bin/*', 
 let g:any_jump_disable_vcs_ignore = 0
 """""""""""""""""""""""""""""""""""""
 " 多光标选中
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 """""""""""""""""""""""""""""""""""""
 " vim使用情况统计
 " Plug 'wakatime/vim-wakatime'
@@ -256,12 +256,12 @@ Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/vim-cursorword'
 """""""""""""""""""""""""""""""""""""
 " csharp
-Plug 'vim-syntastic/syntastic'
-let g:syntastic_cs_checkers = ['OmniSharp']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+" Plug 'vim-syntastic/syntastic'
+" let g:syntastic_cs_checkers = ['OmniSharp']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
 " """""""""""""""""""""""""""""""""""""
 Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'clap'
@@ -293,8 +293,8 @@ Plug 'markonm/traces.vim'
 Plug 'wesQ3/vim-windowswap'
 """""""""""""""""""""""""""""""""""""
 " lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 

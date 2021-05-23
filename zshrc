@@ -60,7 +60,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 source $ZSH/oh-my-zsh.sh
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=( zsh-syntax-highlighting)
 #    history  zsh-syntax-highlighting  docker git common-aliases
 
 # User configuration
