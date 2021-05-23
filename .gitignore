@@ -6,3 +6,4 @@ user_plug_win/**
 vimbackup/**
 init.vim
 session*.vim
+plugin/**
