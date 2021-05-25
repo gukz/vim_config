@@ -2,8 +2,8 @@ O = {
     python = {
         linter = 'black',
         -- @usage can be 'yapf', 'black'
-        formatter = 'yapf',
-        autoformat = true,
+        formatter = 'black',
+        autoformat = false,
         isort = true,
         diagnostics = {virtual_text = true, signs = false, underline = true},
 		analysis = {type_checking = "off", auto_search_paths = true, use_library_code_types = true}
@@ -43,6 +43,12 @@ O = {
         autoformat = true,
 		diagnostics = {virtualtext = {spacing = 0, prefix = ""}, signs = false, underline = true},
 		filetypes = {'rb', 'erb', 'rakefile'}
+	},
+	go = {
+		autoformat = true,
+	},
+	csharp = {
+		autoformat = true,
 	}
 }
 

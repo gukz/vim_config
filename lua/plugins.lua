@@ -105,7 +105,7 @@ return require("packer").startup(
         }
         
         -- Highlight characters to move directly with f/t/F/T
-        use {"deris/vim-shot-f"}
+        -- use {"deris/vim-shot-f"}
 
         -- When open some binary files, show in hex mode
         use {"fidian/hexmode",

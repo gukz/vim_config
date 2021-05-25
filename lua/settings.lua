@@ -36,7 +36,7 @@ vim.o.confirm = true
 vim.o.backspace = "indent,eol,start"
 vim.o.gdefault = true
 vim.o.timeoutlen = 100 -- By default timeoutlen is 1000 ms
-vim.o.ttimeoutlen = 0  -- By default timeoutlen is 1000 ms
+vim.o.ttimeoutlen = 100  -- By default timeoutlen is 1000 ms
 vim.o.showmatch = true -- highlight the matching quota
 vim.o.matchtime = 1
 vim.o.ignorecase = true
@@ -58,7 +58,7 @@ vim.o.pumheight = 10 -- Makes popup menu smaller
 vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- set fillchars=vert:\ ,stl:\ ,stlnc:\   
-vim.cmd("set fillchars=vert:\\ ,stl:\\ ,stlnc:\\ ")
+-- vim.cmd("set fillchars=vert:\\ ,stl:\\ ,stlnc:\\ ")
 vim.cmd('set iskeyword+=_,@,%,#,-') -- treat dash separated words as a word text object"
 vim.cmd('set whichwrap+=<,>,[,],h,l')  -- move to next line with theses keys
 vim.cmd("set viminfo='1000,f1")

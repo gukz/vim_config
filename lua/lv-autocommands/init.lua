@@ -12,8 +12,8 @@ local typescriptreact_autoformat = {'BufWritePre', '*.tsx', 'lua vim.lsp.buf.for
 if O.tsserver.autoformat then
     table.insert(auto_formatters, javascript_autoformat)
     table.insert(auto_formatters, javascriptreact_autoformat)
-	table.insert(auto_formatters, typescript_autoformat)
-	table.insert(auto_formatters, typescriptreact_autoformat)
+    table.insert(auto_formatters, typescript_autoformat)
+    table.insert(auto_formatters, typescriptreact_autoformat)
 end
 
 local lua_format = {'BufWritePre', '*.lua', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
@@ -24,6 +24,9 @@ if O.json.autoformat then table.insert(auto_formatters, json_format) end
 
 local ruby_format = {'BufWritePre', '*.rb', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}
 if O.ruby.autoformat then table.insert(auto_formatters, ruby_format) end
+
+local go_format = {"BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil,1000)"}
+if O.go.autoformat then table.insert(auto_formatters, go_format) end
 
 utils.define_augroups({
     _general_settings = {
@@ -40,12 +43,20 @@ utils.define_augroups({
         {'FileType', 'java', 'luafile ~/.config/nvim/lua/lsp/java-ls.lua'},
         {'FileType', 'java', 'nnoremap ca <Cmd>lua require(\'jdtls\').code_action()<CR>'}
     },
+    _go = {
+        -- Go generally requires Tabs instead of spaces.
+        {'FileType', 'go', 'setlocal tabstop=4'},
+        {'FileType', 'go', 'setlocal shiftwidth=4'},
+        {'FileType', 'go', 'setlocal softtabstop=4'},
+        {'FileType', 'go', 'setlocal noexpandtab'},
+    },
     _dashboard = {
         -- seems to be nobuflisted that makes my stuff disapear will do more testing
         {
             'FileType', 'dashboard',
             'setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= '
-        }, {'FileType', 'dashboard', 'set showtabline=0 | autocmd BufLeave <buffer> set showtabline=1'}
+        },
+        {'FileType', 'dashboard', 'set showtabline=0 | autocmd BufLeave <buffer> set showtabline=1'}
     },
     _markdown = {{'FileType', 'markdown', 'setlocal wrap'}, {'FileType', 'markdown', 'setlocal spell'}},
     _solidity = {
