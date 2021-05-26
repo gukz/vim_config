@@ -115,7 +115,7 @@ return require("packer").startup(
         }
         
         -- Draw a under line of cursor word
-        use {"itchyny/vim-cursorword"}
+        -- use {"itchyny/vim-cursorword"}
 
         use {"psliwka/vim-smoothie"}
 

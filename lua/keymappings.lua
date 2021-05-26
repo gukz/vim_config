@@ -1,5 +1,3 @@
-vim.api.nvim_set_keymap('n', '-', ':RnvimrToggle<CR>', {noremap = true, silent = true})
-
 -- cr auto clean highlights
 vim.api.nvim_set_keymap('n', '<cr>', ':noh<cr><cr>', {noremap = true, silent = true})
 
