@@ -7,7 +7,7 @@ require('keymappings')
 require("colorscheme")
 
 -- TODO is there a way to do this without vimscript
-vim.cmd('source ~/.config/nvim/vimscript/functions.vim')
+-- vim.cmd('source ' + vim.fn.stdpath('config') + '/vimscript/functions.vim')
 
 -- LSP
 require('lsp')

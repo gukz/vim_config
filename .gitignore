@@ -1,9 +1,1 @@
-__pycache__/
-.DS_Store
-backup/**
-user_plug/**
-user_plug_win/**
-vimbackup/**
-init.vim
-session*.vim
-plugin/**
+plugin_*/**

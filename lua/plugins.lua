@@ -1,7 +1,19 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local spec = ""
+if vim.fn.has("mac") == 1  then
+    spec = "osx"
+elseif vim.fn.has("unix") == 1 then
+    spec = "unix"
+else
+    spec = "win"
+end
+
+local install_path = fn.stdpath("config") .. "/plugin_" .. spec .. "/pack/packer.nvim"
+DATA_PATH = vim.fn.stdpath('config') .. "/data_" .. spec
+CACHE_PATH = vim.fn.stdpath('config') .. "/cache_" .. spec
+
 
 if fn.empty(fn.glob(install_path)) > 0 then
     execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
@@ -48,8 +60,11 @@ return require("packer").startup(
         use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
         use {"rafamadriz/friendly-snippets", after = "nvim-compe"}
 
+        -- centralize way to handle toggle quickfix location
+        use {"folke/trouble.nvim", config = function() require("lv-trouble") end}
+
         -- Treesitter
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead"}
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead", config = function() require("lv-treesitter") end}
         use {"windwp/nvim-ts-autotag",
             ft = {'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue'},
             config = function() require('nvim-ts-autotag').setup() end
@@ -118,9 +133,6 @@ return require("packer").startup(
         -- use {"itchyny/vim-cursorword"}
 
         use {"psliwka/vim-smoothie"}
-
-        -- centralize way to handle toggle quickfix location
-        use {"folke/trouble.nvim", config = function() require("lv-trouble") end}
 
         use {"phaazon/hop.nvim"}
 
