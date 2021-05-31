@@ -1,19 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local spec = ""
-if vim.fn.has("mac") == 1  then
-    spec = "osx"
-elseif vim.fn.has("unix") == 1 then
-    spec = "unix"
-else
-    spec = "win"
-end
-
-local install_path = fn.stdpath("config") .. "/plugin_" .. spec .. "/pack/packer.nvim"
-DATA_PATH = vim.fn.stdpath('config') .. "/data_" .. spec
-CACHE_PATH = vim.fn.stdpath('config') .. "/cache_" .. spec
-
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
     execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
@@ -58,7 +46,7 @@ return require("packer").startup(
             config = function() require("lv-compe") end
         }
         use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
-        use {"rafamadriz/friendly-snippets", after = "nvim-compe"}
+        -- use {"rafamadriz/friendly-snippets", after = "nvim-compe"}
 
         -- centralize way to handle toggle quickfix location
         use {"folke/trouble.nvim", config = function() require("lv-trouble") end}

@@ -62,8 +62,8 @@ vim.o.guifont = "FiraCode Nerd Font:h17"
 vim.cmd('set iskeyword+=_,@,%,#,-') -- treat dash separated words as a word text object"
 vim.cmd('set whichwrap+=<,>,[,],h,l')  -- move to next line with theses keys
 vim.cmd("set viminfo='1000,f1")
-vim.cmd("set viminfo^=%")
-vim.cmd("set viminfo+=!")
+-- vim.cmd("set viminfo^=%")
+-- vim.cmd("set viminfo+=!")
 vim.cmd('set colorcolumn=99999') -- fix indentline for now
 
 TERMINAL = vim.fn.expand('$TERMINAL')
