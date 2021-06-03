@@ -79,6 +79,7 @@ autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100) ]]
 -- Java
 -- autocmd FileType java nnoremap ca <Cmd>lua require('jdtls').code_action()<CR>
+vim.api.nvim_command('autocmd BufWritePre *.lua,*.py,*.go,*.c lua vim.lsp.buf.formatting_sync(nil, 500)')
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities

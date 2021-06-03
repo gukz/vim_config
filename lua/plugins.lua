@@ -46,7 +46,7 @@ return require("packer").startup(
             config = function() require("lv-compe") end
         }
         use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
-        -- use {"rafamadriz/friendly-snippets", after = "nvim-compe"}
+	use {"rafamadriz/friendly-snippets", after = "vim-vsnip"}
 
         -- centralize way to handle toggle quickfix location
         use {"folke/trouble.nvim", config = function() require("lv-trouble") end}
@@ -58,17 +58,13 @@ return require("packer").startup(
             config = function() require('nvim-ts-autotag').setup() end
         }
 
+        use {"simrat39/symbols-outline.nvim", config = function() require("lv-symbols") end }
+
         -- Explorer
         use {"kyazdani42/nvim-tree.lua",
             cmd = "NvimTreeToggle",
             event = {"VimEnter", "BufReadPre", "ColorScheme"},
             config = function() require('lv-nvimtree') end
-        }
-
-        -- TODO remove when open on dir is supported by nvimtree
-        use {"kevinhwang91/rnvimr",
-            cmd = "RnvimrToggle",
-            config = function() require("lv-rnvimr") end
         }
 
         -- use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}

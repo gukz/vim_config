@@ -68,6 +68,6 @@ vim.cmd('set colorcolumn=99999') -- fix indentline for now
 
 TERMINAL = vim.fn.expand('$TERMINAL')
 vim.cmd('let &titleold="'..TERMINAL..'"')
-vim.cmd('set ts=4') -- Insert 2 spaces for a tab
-vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
+-- vim.cmd('set ts=4') -- Insert 2 spaces for a tab
+-- vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
 vim.cmd('set inccommand=split') -- Make substitution work in realtime

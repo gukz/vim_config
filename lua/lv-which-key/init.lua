@@ -83,7 +83,7 @@ local mappings = {
     ["D"] = "Dashboard",
     ["e"] = "Explorer",
     ["f"] = "Find File",
-	["h"] = "Hop around",
+    ["h"] = "Hop around",
     ["p"] = "Show Path",
     ["r"] = "Async Run",
     d = {
@@ -141,17 +141,22 @@ local mappings = {
         R = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"}
     },
-    S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
-	t = {
-		name = "+Toggle",
-		d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document"},
-		g = {"<cmd>TroubleToggle<cr>", "Trouble"},
-		l = {"<cmd>TroubleToggle loclist<cr>", "Location"},
-		q = {"<cmd>TroubleToggle quickfix<cr>", "Quickfix"},
-		r = {"<cmd>TroubleToggle lsp_references<cr>", "Reference"},
-		t = {":ToggleTerm<cr>", "Terminal"},
-		w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace"},
-	}
+    S = {
+        name = "+Session",
+        s = {"<cmd>SessionSave<cr>", "Save Session"},
+        l = {"<cmd>SessionLoad<cr>", "Load Session"}
+    },
+    t = {
+        name = "+Toggle",
+        d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document"},
+        g = {"<cmd>TroubleToggle<cr>", "Trouble"},
+        l = {"<cmd>TroubleToggle loclist<cr>", "Location"},
+        q = {"<cmd>TroubleToggle quickfix<cr>", "Quickfix"},
+        r = {"<cmd>TroubleToggle lsp_references<cr>", "Reference"},
+        s = {"<cmd>SymbolsOutline<cr>", "Symbols"},
+        t = {":ToggleTerm<cr>", "Terminal"},
+        w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace"},
+    }
 }
 
 local wk = require("which-key")
