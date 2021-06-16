@@ -53,9 +53,6 @@ vim.api.nvim_set_keymap('n', '<Leader>r', ':AsyncRun ', {noremap = true, silent 
 -- print current file full path
 vim.api.nvim_set_keymap('n', '<Leader>p', ':echo expand("%:P")<CR>', {noremap = true, silent = true})
 
--- simple way to print :
-vim.api.nvim_set_keymap('n', '<Leader>;', ':', {noremap = true, silent = true})
-
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 

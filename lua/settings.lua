@@ -54,11 +54,11 @@ vim.o.swapfile = false
 vim.o.title = true
 vim.o.titlestring="%<%F%=%l/%L - nvim"
 vim.o.pumheight = 10 -- Makes popup menu smaller
--- vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
+vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
 -- vim.o.guifont = "SauceCodePro Nerd Font:h17"
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
-vim.o.guifont = "FiraCode Nerd Font:h17"
+-- vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- set fillchars=vert:\ ,stl:\ ,stlnc:\   
 -- vim.cmd("set fillchars=vert:\\ ,stl:\\ ,stlnc:\\ ")

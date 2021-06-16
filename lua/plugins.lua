@@ -1,7 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
     execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
@@ -46,7 +46,7 @@ return require("packer").startup(
             config = function() require("lv-compe") end
         }
         use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
-	use {"rafamadriz/friendly-snippets", after = "vim-vsnip"}
+        use {"rafamadriz/friendly-snippets", after = "vim-vsnip"}
 
         -- centralize way to handle toggle quickfix location
         use {"folke/trouble.nvim", config = function() require("lv-trouble") end}
@@ -102,6 +102,8 @@ return require("packer").startup(
             config = function() require("lv-barbar") end,
             requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
         }
+
+        use {"markstory/vim-zoomwin"}
         
         -- Highlight characters to move directly with f/t/F/T
         -- use {"deris/vim-shot-f"}
@@ -112,7 +114,7 @@ return require("packer").startup(
                 vim.g.hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.png,*.jpg,*.jpeg,*.gif,*.pdf'
             end
         }
-        
+
         -- Draw a under line of cursor word
         -- use {"itchyny/vim-cursorword"}
 

@@ -2,7 +2,9 @@
 vim.api.nvim_set_keymap('n', '<cr>', ':noh<cr><cr>', {noremap = true, silent = true})
 
 -- = auto redraw the layout
-vim.api.nvim_set_keymap('n', '=', '<c-w>=', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '=', '<c-w>=', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '-', '<c-w>=', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '=', ':ZoomToggle<CR>', {noremap = true, silent = true})
 
 -- better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
