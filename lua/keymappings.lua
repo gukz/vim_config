@@ -55,6 +55,12 @@ vim.api.nvim_set_keymap('i', '<C-k>', '(\"\\<C-p>\")', {noremap = true, expr = t
 -- vim.cmd('inoremap <expr> <TAB> (\"\\<C-n>\")')
 -- vim.cmd('inoremap <expr> <S-TAB> (\"\\<C-p>\")')
 
+vim.cmd('inoremap <silent><expr> <C-Space> compe#complete()')
+vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')")
+vim.cmd("inoremap <silent><expr> <C-e>     compe#close('<C-e>')")
+vim.cmd("inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })")
+vim.cmd("inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })")
+
 -- vim.api.nvim_set_keymap('i', '<C-TAB>', 'compe#complete()', {noremap = true, silent = true, expr = true})
 
 -- vim.cmd([[
