@@ -123,3 +123,6 @@ export GOPROXY="https://goproxy.cn/"
 export GOPRIVATE="git.17bdc.com"
 # export GOROOT_BOOTSTRAP="/home/vagrant/go"
 export GOBIN=/g/go1.14linux/bin
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
