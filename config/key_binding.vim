@@ -28,8 +28,8 @@ nmap <leader>h <Plug>(easymotion-linebackward)
 nnoremap <leader>b :call common#gitblame()<CR>
 nnoremap <leader>c :call common#CleanBuffer()<CR>
 noremap <leader>; :
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+" nmap j <Plug>(accelerated_jk_gj)
+" nmap k <Plug>(accelerated_jk_gk)
 nnoremap <leader>o :call common#OpenInNewTab()<CR>
 nnoremap <cr> :noh<cr><cr>
 noremap <leader>ga :argadd **/*.

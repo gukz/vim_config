@@ -308,6 +308,4 @@ endif
 
 call plug#end()
 
-colorscheme gruvbox
-lua require'colorizer'.setup()
-
+" colorscheme gruvbox
