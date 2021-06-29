@@ -58,8 +58,6 @@ return require("packer").startup(
             config = function() require('nvim-ts-autotag').setup() end
         }
 
-        use {"simrat39/symbols-outline.nvim", config = function() require("lv-symbols") end }
-
         -- Explorer
         use {"kyazdani42/nvim-tree.lua",
             cmd = "NvimTreeToggle",
@@ -103,7 +101,10 @@ return require("packer").startup(
             requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
         }
 
+		-- vim zoom in or out current windows.
         use {"markstory/vim-zoomwin"}
+
+		use {"voldikss/vim-translator"}
         
         -- Highlight characters to move directly with f/t/F/T
         -- use {"deris/vim-shot-f"}

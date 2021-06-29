@@ -47,42 +47,29 @@ local opts = {
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 
--- async run
-vim.api.nvim_set_keymap('n', '<Leader>r', ':AsyncRun ', {noremap = true, silent = true})
-
--- print current file full path
-vim.api.nvim_set_keymap('n', '<Leader>p', ':echo expand("%:P")<CR>', {noremap = true, silent = true})
-
--- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
-
--- telescope
-vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
-
--- dashboard
-vim.api.nvim_set_keymap('n', '<Leader>D', ':Dashboard<CR>', {noremap = true, silent = true})
-
--- Comments
-vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
-
--- close buffer
-vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
-
--- hop around by word
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>", {noremap = true, silent = true})
-
 -- TODO create entire treesitter section
-
 local mappings = {
-    ["/"] = "Comment",
-    ["c"] = "Close Buffer",
-    ["D"] = "Dashboard",
-    ["e"] = "Explorer",
-    ["f"] = "Find File",
-    ["h"] = "Hop around",
-    ["p"] = "Show Path",
-    ["r"] = "Async Run",
+    ["/"] = {"<cmd>CommentToggle<cr>", "Comment"},
+    ["D"] = {"<cmd>Dashboard<cr>", "Dashboard"},
+    ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
+    ["f"] = {"<cmd>Telescope find_files<cr>", "Find File"},
+    ["j"] = {"<cmd>lua require'hop'.hint_words()<cr>", "Jump around"},
+    ["h"] = {"<cmd>set hlsearch!<cr>", "No Highlight"},
+    ["p"] = {"<cmd>echo expand('%:P')<cr>", "Show Path"},
+    ["P"] = {"<cmd>lua require'telescope'.extensions.project.project{}<cr>", "Projects"},
+    ["r"] = {"<cmd>AsyncRun ", "Async Run"},
+    ["w"] = {"<cmd>Translate<cr>", "Translate Word"},
+    b = {
+      name = "+Buffers",
+      c = {"<cmd>BufferClose<cr>", "Close Buffer"},
+      d = {"<cmd>BufferOrderByDirectory<cr>", "sort BufferLines automatically by directory"},
+      e = {"<cmd>BufferCloseAllButCurrent<cr>", "close all but current buffer"},
+      h = {"<cmd>BufferCloseBuffersLeft<cr>", "close all buffers to the left"},
+      j = {"<cmd>BufferPick<cr>", "jump to buffer"},
+      l = {"<cmd>BufferCloseBuffersRight<cr>", "close all BufferLines to the right"},
+      L = {"<cmd>BufferOrderByLanguage<cr>", "sort BufferLines automatically by language"},
+      w = {"<cmd>BufferWipeout<cr>", "wipeout buffer"},
+    },
     d = {
         name = "+Debug",
         b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
@@ -146,13 +133,12 @@ local mappings = {
     t = {
         name = "+Toggle",
         d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document"},
-        g = {"<cmd>TroubleToggle<cr>", "Trouble"},
         l = {"<cmd>TroubleToggle loclist<cr>", "Location"},
         q = {"<cmd>TroubleToggle quickfix<cr>", "Quickfix"},
         r = {"<cmd>TroubleToggle lsp_references<cr>", "Reference"},
-        s = {"<cmd>SymbolsOutline<cr>", "Symbols"},
-        t = {":ToggleTerm<cr>", "Terminal"},
+        t = {"<cmd>TroubleToggle<cr>", "Trouble"},
         w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace"},
+        z = {":ToggleTerm<cr>", "Zsh"},
     }
 }
 
