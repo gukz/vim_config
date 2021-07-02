@@ -47,6 +47,8 @@ local opts = {
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 
+vim.api.nvim_set_keymap("v", "/", ":CommentToggle<CR>", {noremap = true, silent = true})
+
 -- TODO create entire treesitter section
 local mappings = {
     ["/"] = {"<cmd>CommentToggle<cr>", "Comment"},

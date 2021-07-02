@@ -95,16 +95,17 @@ return require("packer").startup(
         use {"glepnir/galaxyline.nvim",
             event = "VimEnter", config = function() require("lv-galaxyline") end
         }
+
         use {"romgrk/barbar.nvim",
             event = "VimEnter",
             config = function() require("lv-barbar") end,
             requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
         }
 
-		-- vim zoom in or out current windows.
+        -- vim zoom in or out current windows.
         use {"markstory/vim-zoomwin"}
 
-		use {"voldikss/vim-translator"}
+        use {"voldikss/vim-translator"}
         
         -- Highlight characters to move directly with f/t/F/T
         -- use {"deris/vim-shot-f"}
@@ -117,7 +118,9 @@ return require("packer").startup(
         }
 
         -- Draw a under line of cursor word
-        -- use {"itchyny/vim-cursorword"}
+        use {"itchyny/vim-cursorword"}
+        -- Interested word
+        use {"lfv89/vim-interestingwords"}
 
         use {"psliwka/vim-smoothie"}
 
