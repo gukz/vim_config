@@ -7,9 +7,8 @@ require('telescope').setup {
     defaults = {
         find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
         prompt_position = "bottom",
-        -- prompt_prefix = " ",
-        prompt_prefix = " ",
-        selection_caret = " ",
+        -- prompt_prefix = " ",
+        -- selection_caret = " ",
         entry_prefix = "  ",
         initial_mode = "insert",
         selection_strategy = "reset",
@@ -40,7 +39,7 @@ require('telescope').setup {
             i = {
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                -- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                 -- To disable a keymap, put [map] = false
                 -- So, to not map "<C-n>", just put
                 -- ["<c-x>"] = false,
@@ -59,7 +58,7 @@ require('telescope').setup {
             n = {
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                -- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 				["<C-t>"] = trouble.open_with_trouble,
                 -- ["<C-i>"] = my_cool_custom_action,
             }

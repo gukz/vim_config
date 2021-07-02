@@ -1,6 +1,5 @@
 CONFIG_PATH = vim.fn.stdpath('config')
--- ~/.local/share/nvim
-DATA_PATH = vim.fn.stdpath('data')
+DATA_PATH = vim.fn.stdpath('data')  -- ~/.local/share/nvim
 
 require('lv-globals')
 require('settings')
