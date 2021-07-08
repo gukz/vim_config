@@ -23,7 +23,7 @@ require('telescope').setup {
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {"*.cache", "bin/*", "obj/*", "build/*", "Tests/*", "plugin/*", "undo/*", "out/*", "packages/*"},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
-        shorten_path = true,
+        path_display = {'absolute'}, -- 'shorten','absolute','tail'
         winblend = 0,
         border = {},
         -- borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
