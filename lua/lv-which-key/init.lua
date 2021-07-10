@@ -138,9 +138,9 @@ local mappings = {
         l = {"<cmd>TroubleToggle loclist<cr>", "Location"},
         q = {"<cmd>TroubleToggle quickfix<cr>", "Quickfix"},
         r = {"<cmd>TroubleToggle lsp_references<cr>", "Reference"},
-        t = {"<cmd>TroubleToggle<cr>", "Trouble"},
+        r = {"<cmd>TroubleToggle<cr>", "Trouble"},
         w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace"},
-        z = {":ToggleTerm<cr>", "Zsh"},
+        t = {":ToggleTerm<cr>", "Terminal"},
     }
 }
 

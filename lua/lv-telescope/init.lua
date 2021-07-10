@@ -21,7 +21,7 @@ require('telescope').setup {
 			vertical = {mirror = false},
         },
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
-        file_ignore_patterns = {"*.cache", "bin/*", "obj/*", "build/*", "Tests/*", "plugin/*", "undo/*", "out/*", "packages/*"},
+        file_ignore_patterns = {"*.cache", "bin/*", "obj/*", "build/*", "Tests/*", "undo/*", "out/*", "packages/*"},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
         path_display = {'absolute'}, -- 'shorten','absolute','tail'
         winblend = 0,

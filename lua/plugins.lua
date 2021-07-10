@@ -36,6 +36,19 @@ return require("packer").startup(
                 {"nvim-telescope/telescope-fzy-native.nvim"},
             }
         }
+		-- auto format
+		use {"Chiel92/vim-autoformat",
+            config = function()
+				-- vim.g.formaterpath = {'/usr/bin/astyle'}
+			    vim.g.autoformat_autoindent = 0
+			    vim.g.autoformat_retab = 0
+			    vim.g.autoformat_remove_trailing_spaces = 0
+
+                vim.g.formatdef_my_custom_cs = '"astyle --mode=cs --style=ansi -pcHs4".&shiftwidth'
+                vim.g.formatters_cs = {'my_custom_cs'}
+			end
+		}
+		use {"sbdchd/neoformat"}
 
         -- Debugging
         use {"mfussenegger/nvim-dap"}

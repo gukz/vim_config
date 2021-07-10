@@ -56,7 +56,7 @@ vim.o.title = true
 vim.o.titlestring="%<%F%=%l/%L - nvim"
 vim.o.pumheight = 10 -- Makes popup menu smaller
 vim.o.syntax = "on"  -- syntax highlighting
-vim.o.t_Co = "256" -- Support 256 colors
+-- vim.o.t_Co = "256" -- Support 256 colors
 vim.o.termguicolors = true -- set term gui colors most terminals support this
 vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
